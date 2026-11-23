@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compétence CONCEVOIR — SOUAN Victor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero-sub { min-height: 260px !important; padding: 65px 20px !important; }
+    .breadcrumb {
+      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+      color: var(--navy); font-weight: 600; font-size: 14.5px; margin-bottom: 24px;
+      padding: 8px 14px; background: var(--bg-ice); border-radius: 8px; transition: 0.2s;
+    }
+    .breadcrumb:hover { background: var(--primary); color: #ffffff; }
+    .ac-detail-card { margin-bottom: 24px; border-left: 5px solid var(--primary); }
+    .ac-detail-card h2 { color: var(--navy); font-size: 19px; margin: 10px 0 12px; }
+    .proof-box {
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 16px 20px; margin-top: 12px;
+    }
+    .proof-box h4 { font-size: 13.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+    .proof-box p { font-size: 14.5px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">SOUAN Victor <span class="brand-badge">BUT GEII</span></a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li>
+          <a href="projets.html">Projets &amp; SAÉ ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="projets.html">Tous les projets</a></li>
+            <li><a href="sae-s1.html">SAÉ S1 — Thermomètre de bain</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="competences.html" class="active">Compétences ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="competences.html">Vue d'ensemble</a></li>
+            <li><a href="comp-concevoir.html">Concevoir (C.1 à C.4)</a></li>
+            <li><a href="comp-verifier.html">Vérifier (V.1 à V.2)</a></li>
+            <li><a href="comp-maintenir.html">Maintenir (M.1 à M.2)</a></li>
+            <li><a href="comp-installer.html">Installer — EME (I.2)</a></li>
+            <li><a href="comp-manager.html">Manager (G.1 à G.3)</a></li>
+          </ul>
+        </li>
+        <li><a href="parcours.html">Parcours &amp; CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero hero-sub">
+    <div class="hero-bar"></div>
+    <h1>Compétence : CONCEVOIR</h1>
+    <p>Critères C.1 à C.4 du référentiel simplifié — Portefeuille de preuves</p>
+  </section>
+
+  <div class="container">
+    <a href="competences.html" class="breadcrumb">← Retour au référentiel de compétences</a>
+
+    <!-- C.1 -->
+    <div class="card ac-detail-card reveal">
+      <span class="badge badge-navy">Critère C.1</span>
+      <h2>C.1 : J'identifie les fonctions demandées à la lecture du cahier des charges (architecture fonctionnelle - sans solution technique)</h2>
+      <div class="proof-box">
+        <h4>Preuve S1 — SAÉ Thermomètre de bain</h4>
+        <p>Analyse du cahier des charges client (plage de mesure, seuils d'alerte à 36,0 °C et 39,0 °C, autonomie de 24 h) et découpage du système en blocs fonctionnels (acquérir la température, traiter et comparer le signal, alerter l'utilisateur, alimenter le système) sans imposer de composants dans un premier temps.</p>
+        <div style="margin-top: 10px;"><a href="sae-s1.html" class="badge badge-blue" style="text-decoration: none;">Voir la SAÉ S1 ↗</a></div>
+      </div>
+    </div>
+
+    <!-- C.2 -->
+    <div class="card ac-detail-card reveal">
+      <span class="badge badge-navy">Critère C.2</span>
+      <h2>C.2 : Je propose une solution technique pour répondre à une fonction</h2>
+      <div class="proof-box">
+        <h4>Preuve S1 — SAÉ Thermomètre de bain</h4>
+        <p>Choix et dimensionnement des composants répondant à chaque bloc fonctionnel : capteur analogique linéaire <strong>LM35</strong> (10 mV/°C) pour la mesure, amplificateur opérationnel <strong>MCP6002</strong> pour le conditionnement et la comparaison des seuils, batterie <strong>LiPo 2S</strong> pour l'autonomie, tout en respectant l'enveloppe budgétaire (&lt; 20 €).</p>
+      </div>
+    </div>
+
+    <!-- C.3 -->
+    <div class="card ac-detail-card reveal">
+      <span class="badge badge-navy">Critère C.3</span>
+      <h2>C.3 : J'affine une solution technique en m'appuyant sur un maquettage numérique et/ou matériel</h2>
+      <div class="proof-box">
+        <h4>Preuve S1 — Simulation &amp; Maquettage</h4>
+        <p>Saisie du schéma structurel et simulation électrique sous <strong>Proteus ISIS</strong> afin de vérifier les tensions de basculement et le gain de l'étage d'amplification avant de lancer le routage du circuit imprimé.</p>
+      </div>
+    </div>
+
+    <!-- C.4 -->
+    <div class="card ac-detail-card reveal">
+      <span class="badge badge-navy">Critère C.4</span>
+      <h2>C.4 : Je rédige un dossier de conception et de fabrication</h2>
+      <div class="proof-box">
+        <h4>Preuve S1 — Dossiers DDC / DDF &amp; Routage ARES</h4>
+        <p>Rédaction du <strong>Dossier de Conception (DDC)</strong> et du <strong>Dossier de Définition (DDF)</strong> : routage complet du circuit imprimé (100 × 60 mm) sous <strong>ARES</strong>, génération des fichiers Gerber, plan de perçage, nomenclature des composants et dessin vectoriel sous <strong>Inkscape</strong> pour la gravure laser du boîtier.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-card">
+      <h3 style="font-size: 21px;">Victor Souan — Portfolio BUT GEII</h3>
+      <p style="font-size: 14.5px; color: #bae6fd;">IUT de Bordeaux • Site de Gradignan</p>
+      <div class="footer-actions">
+        <a href="mailto:victor.souan@etu.u-bordeaux.fr" class="footer-btn btn-mail">✉️ victor.souan@etu.u-bordeaux.fr</a>
+        <button class="footer-btn btn-in" data-copy-email="victor.souan@etu.u-bordeaux.fr">📋 Copier l'email</button>
+        <a href="https://www.linkedin.com/in/victor-souan/" target="_blank" rel="noopener noreferrer" class="footer-btn btn-in">LinkedIn ↗</a>
+      </div>
+      <p style="font-size: 13px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px;">© 2026 Victor Souan — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" title="Haut de page">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

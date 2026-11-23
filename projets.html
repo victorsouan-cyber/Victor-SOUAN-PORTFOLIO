@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets & SAÉ — SOUAN Victor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero-sub {
+      min-height: 280px !important;
+      padding: 70px 20px !important;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 38px;
+    }
+
+    .filter-btn {
+      padding: 9px 18px;
+      border-radius: 99px;
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+    }
+
+    /* GRILLE DES APERÇUS DE PROJETS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .project-banner {
+      height: 185px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .project-banner-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+    }
+
+    .project-content {
+      padding: 24px 26px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .project-content h2 {
+      font-size: 21px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .project-content p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .project-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #f1f5f9;
+      font-size: 13px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    @media (max-width: 820px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">
+      SOUAN Victor <span class="brand-badge">BUT GEII</span>
+    </a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li>
+          <a href="projets.html" class="active">Projets &amp; SAÉ ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="projets.html">Tous les projets</a></li>
+            <li><a href="sae-s1.html">SAÉ S1 — Thermomètre de bain</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="competences.html">Compétences ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="competences.html#concevoir">01. Concevoir</a></li>
+            <li><a href="competences.html#verifier">02. Vérifier</a></li>
+            <li><a href="competences.html#manager">03. Manager</a></li>
+          </ul>
+        </li>
+        <li><a href="parcours.html">Parcours &amp; CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero hero-sub">
+    <div class="hero-bar"></div>
+    <h1>Mes Projets &amp; SAÉ</h1>
+    <p>Découvrez l'ensemble de mes Situations d'Apprentissage et d'Évaluation en BUT GEII</p>
+  </section>
+
+  <div class="container">
+    <!-- FILTRES PAR DOMAINE -->
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">Tous les projets (2)</button>
+      <button class="filter-btn" data-filter="electronique">Électronique &amp; PCB</button>
+      <button class="filter-btn" data-filter="energie">Énergie &amp; Puissance</button>
+    </div>
+
+    <!-- GRILLE DES APERÇUS -->
+    <div class="projects-grid">
+
+      <!-- APERÇU 1 : SAÉ S1 THERMOMÈTRE DE BAIN -->
+      <article class="card project-card project-item reveal" data-category="electronique">
+        <div>
+          <div class="project-banner" style="background-image: linear-gradient(rgba(15,23,42,0.2), rgba(15,23,42,0.4)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80');">
+            <span class="badge badge-amber project-banner-badge">Semestre 1 • En cours</span>
+          </div>
+          <div class="project-content">
+            <div>
+              <div class="project-tags">
+                <span class="badge badge-blue">Concevoir</span>
+                <span class="badge badge-blue">Vérifier</span>
+                <span class="badge badge-gray">Équipe de 4</span>
+              </div>
+              <h2>SAÉ S1 — Thermomètre de bain électronique</h2>
+              <p>Conception complète d'un thermomètre autonome sur batterie LiPo 2S avec capteur LM35, amplification MCP6002, seuils d'alerte (36,0 °C et 39,0 °C) et routage PCB sous ARES.</p>
+            </div>
+            <div>
+              <div class="project-specs" style="margin-bottom: 16px;">
+                <span>📐 PCB 100 × 60 mm</span>
+                <span>🔋 Autonomie 24 h</span>
+                <span>⏱️ 40 h projet</span>
+              </div>
+              <a href="sae-s1.html" class="btn-navy" style="width: 100%;">Ouvrir la page dédiée du projet →</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- APERÇU 2 : SAÉ S2 KART À HÉLICE -->
+      <article class="card project-card project-item reveal" data-category="energie electronique">
+        <div>
+          <div class="project-banner" style="background-image: linear-gradient(rgba(15,23,42,0.2), rgba(15,23,42,0.4)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80');">
+            <span class="badge badge-gray project-banner-badge">Semestre 2 • À venir</span>
+          </div>
+          <div class="project-content">
+            <div>
+              <div class="project-tags">
+                <span class="badge badge-navy">Énergie &amp; Puissance</span>
+                <span class="badge badge-gray">Asservissement</span>
+              </div>
+              <h2>SAÉ S2 — Kart à hélice propulsé</h2>
+              <p>Étude et réalisation de la chaîne d'énergie et de commande d'un véhicule mobile propulsé par hélice : variation de vitesse moteur, gestion de batterie et pilotage embarqué.</p>
+            </div>
+            <div>
+              <div class="project-specs" style="margin-bottom: 16px;">
+                <span>⚡ Électronique de puissance</span>
+                <span>🎛️ Commande moteur</span>
+              </div>
+              <span class="btn-outline" style="width: 100%; opacity: 0.7; cursor: default;">Page disponible au Semestre 2</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-card">
+      <h3 style="font-size: 21px;">Victor Souan — Portfolio BUT GEII</h3>
+      <p style="font-size: 14.5px; color: #bae6fd;">IUT de Bordeaux • Site de Gradignan</p>
+      <div class="footer-actions">
+        <a href="mailto:victor.souan@etu.u-bordeaux.fr" class="footer-btn btn-mail">✉️ victor.souan@etu.u-bordeaux.fr</a>
+        <button class="footer-btn btn-in" data-copy-email="victor.souan@etu.u-bordeaux.fr">📋 Copier l'email</button>
+        <a href="https://www.linkedin.com/in/victor-souan/" target="_blank" rel="noopener noreferrer" class="footer-btn btn-in">LinkedIn ↗</a>
+      </div>
+      <p style="font-size: 13px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px;">© 2026 Victor Souan — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" title="Haut de page">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

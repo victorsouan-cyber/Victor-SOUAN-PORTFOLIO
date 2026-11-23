@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOUAN Victor — Portfolio BUT GEII</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .welcome-card {
+      max-width: 960px;
+      margin: 0 auto;
+      border-left: 6px solid var(--primary);
+    }
+
+    .welcome-card h2 {
+      margin: 12px 0 16px;
+      font-size: 25px;
+      color: var(--navy);
+    }
+
+    .welcome-card p {
+      margin-bottom: 14px;
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .welcome-card strong { color: var(--navy); }
+
+    /* MISE EN PAGE À PROPOS : PHOTO À GAUCHE + CARTES À DROITE */
+    .about-split {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .profile-photo-wrapper {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 4px solid #ffffff;
+      box-shadow: 0 12px 28px rgba(23, 37, 84, 0.14);
+      background: #f5f3ef;
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .profile-photo-wrapper:hover .profile-photo {
+      transform: scale(1.03);
+    }
+
+    .about-cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .about-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 22px;
+    }
+
+    .about-icon {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: var(--bg-ice);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-item h3 {
+      font-size: 16.5px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .about-item p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .domain-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .domain-card {
+      text-align: center;
+      padding: 22px;
+    }
+
+    .domain-card h3 {
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .domain-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .domain-card:hover .domain-image {
+      transform: scale(1.03);
+    }
+
+    .domain-description {
+      text-align: left;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* APERÇU PROJET PHARE SUR L'ACCUEIL */
+    .featured-sae {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      background: linear-gradient(135deg, #f8fafc 0%, #e7f5fc 100%);
+      border-left: 6px solid var(--navy);
+    }
+
+    @media (max-width: 860px) {
+      .about-split {
+        grid-template-columns: 1fr;
+      }
+      .profile-photo-wrapper {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+      .domain-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">
+      SOUAN Victor <span class="brand-badge">BUT GEII</span>
+    </a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li>
+          <a href="projets.html">Projets &amp; SAÉ ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="projets.html#sae-s1">SAÉ S1 — Thermomètre de bain</a></li>
+            <li><a href="projets.html#tp-arduino">TP &amp; Automatismes</a></li>
+            <li><a href="projets.html#sae-s2">SAÉ S2 — Kart à hélice</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="competences.html">Compétences ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="competences.html#concevoir">01. Concevoir</a></li>
+            <li><a href="competences.html#verifier">02. Vérifier</a></li>
+            <li><a href="competences.html#manager">03. Manager</a></li>
+          </ul>
+        </li>
+        <li><a href="parcours.html">Parcours &amp; CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bar"></div>
+    <h1>Étudiant en BUT GEII</h1>
+    <p>Génie Électrique et Informatique Industrielle — IUT de Bordeaux (Site de Gradignan)</p>
+  </section>
+
+  <!-- BIENVENUE -->
+  <section class="section-ice">
+    <div class="card welcome-card reveal">
+      <span class="badge badge-blue">Portfolio • BUT GEII</span>
+      <h2>Bienvenue sur mon portfolio</h2>
+      <p>
+        Je suis <strong>Victor Souan</strong>, étudiant en première année de <strong>BUT Génie Électrique et Informatique Industrielle (GEII)</strong> à l'<strong>IUT de Bordeaux</strong>, sur le site de Gradignan.
+      </p>
+      <p>
+        Passionné par les sciences, l'énergie et les nouvelles technologies, je m'intéresse particulièrement à l'<strong>électronique</strong>, aux <strong>systèmes automatisés</strong> et aux <strong>applications industrielles</strong>.
+      </p>
+      <p>
+        À travers ce portfolio, je vous invite à découvrir mon parcours, mes compétences ainsi que les différents projets et réalisations développés au cours de ma formation.
+      </p>
+    </div>
+  </section>
+
+  <!-- À PROPOS DE MOI (AVEC TA PHOTO À GAUCHE) -->
+  <section class="container">
+    <h2 class="section-title reveal">À propos de moi</h2>
+
+    <div class="about-split">
+      <!-- PHOTO DE PROFIL -->
+      <div class="profile-photo-wrapper reveal">
+        <img src="photo-victor.jpg" alt="Victor Souan — Étudiant en BUT GEII" class="profile-photo">
+      </div>
+
+      <!-- CARTES + BOUTON CV -->
+      <div>
+        <div class="about-cards-stack">
+          <div class="card about-item reveal">
+            <div class="about-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div>
+              <h3>Formation</h3>
+              <p>BUT 1 GEII à l'IUT de Bordeaux (Gradignan) — Bac Général spécialités Mathématiques &amp; Physique-Chimie (Mention Bien).</p>
+            </div>
+          </div>
+
+          <div class="card about-item reveal">
+            <div class="about-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
+            </div>
+            <div>
+              <h3>Domaines techniques</h3>
+              <p>Électronique analogique et numérique, routage PCB (ISIS/ARES), programmation C/C++ sur microcontrôleurs (Arduino) et automatismes.</p>
+            </div>
+          </div>
+
+          <div class="card about-item reveal">
+            <div class="about-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <h3>Qualités personnelles</h3>
+              <p>Rigueur, esprit d'analyse, autonomie, capacité d'adaptation et travail en équipe acquis en projet et en compétition sportive.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center;" class="reveal">
+          <a href="https://drive.google.com/file/d/1WzoYddrsvxdekkOzyr0ID587YM53Q3Lj/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-navy">
+            📄 Consulter mon CV (PDF) ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LES 3 DOMAINES DU BUT GEII -->
+  <section class="section-ice">
+    <div style="max-width: 1140px; margin: 0 auto;">
+      <h2 class="section-title reveal">Les 3 piliers du BUT GEII</h2>
+      <p style="text-align: center; max-width: 720px; margin: -12px auto 36px; color: var(--text-muted); font-size: 16.5px;" class="reveal">
+        La formation s'articule autour de trois domaines complémentaires au cœur des systèmes industriels et énergétiques modernes.
+      </p>
+
+      <div class="domain-container">
+        <div class="card domain-card reveal">
+          <h3>Électronique</h3>
+          <img class="domain-image" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Circuits électroniques">
+          <p class="domain-description">Étude, simulation et conception de circuits électroniques analogiques, numériques et de cartes PCB.</p>
+        </div>
+
+        <div class="card domain-card reveal">
+          <h3>Automatisme</h3>
+          <img class="domain-image" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Systèmes automatisés">
+          <p class="domain-description">Programmation de microcontrôleurs et d'automates, commande et supervision de systèmes industriels.</p>
+        </div>
+
+        <div class="card domain-card reveal">
+          <h3>Énergie</h3>
+          <img class="domain-image" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Énergie électrique">
+          <p class="domain-description">Production, conversion, distribution et maîtrise de l'énergie électrique (parcours EME visé en 2e année).</p>
+        </div>
+      </div>
+
+      <!-- ENCART PROJET PHARE -->
+      <div class="card featured-sae reveal" style="margin-top: 40px;">
+        <div>
+          <span class="badge badge-amber">Projet en cours • Semestre 1</span>
+          <h3 style="color: var(--navy); font-size: 21px; margin-top: 8px;">SAÉ S1 : Conception d'un Thermomètre de bain</h3>
+          <p style="color: var(--text-muted); font-size: 14.5px; margin-top: 4px;">Capteur LM35, amplification MCP6002, routage PCB 100 × 60 mm sous ARES et dossiers DDF/DDC.</p>
+        </div>
+        <a href="projets.html" class="btn-navy">Voir mes projets &amp; SAÉ ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-card">
+      <h3 style="font-size: 21px;">Victor Souan — Portfolio BUT GEII</h3>
+      <p style="font-size: 14.5px; color: #bae6fd;">IUT de Bordeaux • Site de Gradignan</p>
+      <div class="footer-actions">
+        <a href="mailto:victor.souan@etu.u-bordeaux.fr" class="footer-btn btn-mail">✉️ victor.souan@etu.u-bordeaux.fr</a>
+        <button class="footer-btn btn-in" data-copy-email="victor.souan@etu.u-bordeaux.fr">📋 Copier l'email</button>
+        <a href="https://www.linkedin.com/in/victor-souan/" target="_blank" rel="noopener noreferrer" class="footer-btn btn-in">LinkedIn ↗</a>
+      </div>
+      <p style="font-size: 13px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px;">© 2026 Victor Souan — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" title="Haut de page">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

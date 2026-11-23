@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAÉ S1 : Thermomètre de bain (TDB-EQ43) — SOUAN Victor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero-sub {
+      min-height: 280px !important;
+      padding: 70px 20px !important;
+    }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 14.5px;
+      margin-bottom: 24px;
+      padding: 8px 14px;
+      background: var(--bg-ice);
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    .breadcrumb:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* CHIFFRES CLÉS DU CAHIER DES CHARGES */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 12px 0 36px;
+    }
+
+    .spec-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid var(--primary);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .spec-box span {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .spec-box strong {
+      display: block;
+      font-size: 18px;
+      color: var(--navy);
+      margin-top: 4px;
+    }
+
+    .project-two-cols {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+
+    .tech-list {
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 14.5px;
+      margin-top: 10px;
+    }
+
+    .tech-list li {
+      margin-bottom: 9px;
+    }
+
+    .comp-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 14px;
+      margin-bottom: 8px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .comp-link:hover {
+      background: var(--bg-ice);
+      border-color: var(--primary);
+    }
+
+    /* GRILLE GRILLE D'ÉVALUATION : SAVOIR-FAIRE / SAVOIR-ÊTRE / RESSOURCES */
+    .triptyque-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 48px;
+    }
+
+    .triptyque-card {
+      border-top: 4px solid var(--navy);
+    }
+
+    .triptyque-card.sf { border-top-color: var(--primary); }
+    .triptyque-card.se { border-top-color: #16a34a; }
+    .triptyque-card.res { border-top-color: #f59e0b; }
+
+    .triptyque-card h3 {
+      color: var(--navy);
+      font-size: 18px;
+      margin: 10px 0 12px;
+    }
+
+    .triptyque-card ul {
+      padding-left: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .triptyque-card li {
+      margin-bottom: 7px;
+    }
+
+    /* GALERIE DE PREUVES TECHNIQUES (ISIS / ARES) */
+    .proofs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .proof-item {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .proof-img {
+      width: 100%;
+      height: 230px;
+      object-fit: contain;
+      background: #0f172a;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      border: 1px solid #cbd5e1;
+    }
+
+    .proof-img.light-bg {
+      background: #e5e5e0;
+    }
+
+    .proof-item h4 {
+      color: var(--navy);
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .proof-item p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* FRISE 4 PHASES */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .phase-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid #e2e8f0;
+      border-top: 4px solid #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .phase-done { border-top-color: #22c55e; }
+    .phase-active { border-top-color: #f59e0b; box-shadow: 0 6px 18px rgba(245, 158, 11, 0.12); }
+
+    .phase-card h3 {
+      font-size: 17px;
+      color: var(--navy);
+      margin: 10px 0 12px;
+    }
+
+    .phase-card ul {
+      padding-left: 18px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .phase-card li { margin-bottom: 6px; }
+
+    .phase-footer {
+      border-top: 1px solid #f1f5f9;
+      padding-top: 12px;
+      font-size: 12.5px;
+    }
+
+    @media (max-width: 900px) {
+      .specs-grid, .proofs-grid { grid-template-columns: 1fr; }
+      .project-two-cols, .triptyque-grid, .timeline-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">
+      SOUAN Victor <span class="brand-badge">BUT GEII</span>
+    </a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li>
+          <a href="projets.html" class="active">Projets &amp; SAÉ ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="projets.html">Tous les projets</a></li>
+            <li><a href="sae-s1.html">SAÉ S1 — Thermomètre de bain</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="competences.html">Compétences ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="competences.html">Vue d'ensemble</a></li>
+            <li><a href="comp-concevoir.html">Concevoir (C.1 à C.4)</a></li>
+            <li><a href="comp-verifier.html">Vérifier (V.1 à V.2)</a></li>
+            <li><a href="comp-maintenir.html">Maintenir (M.1 à M.2)</a></li>
+            <li><a href="comp-installer.html">Installer — EME (I.2)</a></li>
+            <li><a href="comp-manager.html">Manager (G.1 à G.3)</a></li>
+          </ul>
+        </li>
+        <li><a href="parcours.html">Parcours &amp; CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero hero-sub">
+    <div class="hero-bar"></div>
+    <h1>SAÉ S1 — Thermomètre de bain (TDB-EQ43)</h1>
+    <p>Conception électronique, simulation sous ISIS, routage ARES et validation • Semestre 1</p>
+  </section>
+
+  <div class="container">
+    <a href="projets.html" class="breadcrumb">← Retour à tous les projets</a>
+
+    <!-- CHIFFRES CLÉS DU CAHIER DES CHARGES -->
+    <div class="specs-grid reveal">
+      <div class="spec-box">
+        <span>Référence Projet</span>
+        <strong>TDB-EQ43 (Équipe 4)</strong>
+      </div>
+      <div class="spec-box">
+        <span>Alimentation &amp; Régulation</span>
+        <strong>LiPo 2S + LM78L05</strong>
+      </div>
+      <div class="spec-box">
+        <span>Seuils de comparaison</span>
+        <strong>36,0 °C &amp; 39,0 °C</strong>
+      </div>
+      <div class="spec-box">
+        <span>Dimensions PCB &amp; Budget</span>
+        <strong>100 × 60 mm • &lt; 20 €</strong>
+      </div>
+    </div>
+
+    <div class="project-two-cols">
+      <!-- DESCRIPTION TECHNIQUE EXACTE DU SCHÉMA TDB-EQ43 -->
+      <div class="card reveal">
+        <span class="badge badge-amber">Semestre 1 • Équipe 43</span>
+        <h2 style="color: var(--navy); font-size: 23px; margin: 12px 0 16px;">Architecture électronique du système</h2>
+        <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">
+          Le système <strong>TDB-EQ43</strong> est un thermomètre de bain autonome conçu pour indiquer visuellement si la température de l'eau est trop froide, idéale (tiède) ou trop chaude, tout en garantissant une autonomie de 24 heures et un coût composants inférieur à 20 €.
+        </p>
+
+        <h3 style="color: var(--navy); font-size: 16.5px; margin-top: 16px;">Les 4 fonctions techniques (Schéma structurel) :</h3>
+        <ul class="tech-list">
+          <li><strong>1. Énergie :</strong> Alimentation par batterie LiPo 2S raccordée sur bornier <code>J1</code>, interrupteur à glissière <code>SW1</code> (JS202011) et régulateur linéaire 5 V <strong>LM78L05ACZ</strong> (<code>U6</code>) fournissant la tension stable <code>VCC</code>.</li>
+          <li><strong>2. Acquisition :</strong> Capteur de température analogique linéaire <strong>LM35</strong> (<code>U3</code>, sensibilité 10 mV/°C) associé à un pont diviseur résistif (<code>R1</code> à <code>R5</code>) générant deux tensions de référence précises : <code>SEUIL_36°C</code> (0,36 V) et <code>SEUIL_39°C</code> (0,39 V).</li>
+          <li><strong>3. Traitement (Comparaison &amp; Logique) :</strong> Double amplificateur opérationnel <strong>MCP6002</strong> monté en comparateur (<code>AOP:A</code> détecte <code>EAU CHAUDE &gt; 39 °C</code> ; <code>AOP:B</code> détecte <code>EAU FROIDE &lt; 36 °C</code>), suivi d'une porte logique <strong>NOR 74HC02</strong> (<code>PORTE:A</code>) qui active le signal <code>EAU TIEDE</code> lorsque l'eau est comprise entre 36 °C et 39 °C.</li>
+          <li><strong>4. Action (Signalisation visuelle) :</strong> Pilotage de trois LEDs haute visibilité avec leurs résistances de limitation : LED bleue (<code>LED_B</code> + 4,3 kΩ) pour l'eau froide, LED verte (<code>LED_V</code> + 910 Ω) pour l'eau tiède, et LED rouge (<code>LED_R</code> + 649 Ω) pour l'eau chaude.</li>
+        </ul>
+
+        <div style="margin-top: 20px;">
+          <a href="Schemafinal.pdf" target="_blank" rel="noopener noreferrer" class="btn-navy">
+            📐 Ouvrir le schéma structurel complet (Schemafinal.pdf) ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- ENCADRÉ COMPÉTENCES & LIVRABLES -->
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="card reveal">
+          <h4 style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 14px;">Compétences validées</h4>
+          <a href="comp-concevoir.html" class="comp-link">
+            <span><strong>CONCEVOIR</strong><br>Critères C.1 à C.4 (ISIS / ARES)</span>
+            <span>↗</span>
+          </a>
+          <a href="comp-verifier.html" class="comp-link">
+            <span><strong>VÉRIFIER</strong><br>Critères V.1 à V.2 (Simulations)</span>
+            <span>↗</span>
+          </a>
+          <a href="comp-manager.html" class="comp-link">
+            <span><strong>MANAGER</strong><br>Critères G.1 à G.3 (Équipe &amp; Budget)</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="card reveal" style="background: var(--bg-ice);">
+          <h4 style="color: var(--navy); font-size: 16px; margin-bottom: 8px;">Livrables d'ingénierie</h4>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7;">
+            • <strong>DDC :</strong> Dossier de Conception<br>
+            • <strong>DDF :</strong> Dossier de Définition &amp; Nomenclature<br>
+            • <strong>CAO :</strong> Schéma ISIS &amp; Routage PCB ARES<br>
+            • <strong>Design :</strong> Logo vectoriel Inkscape (gravure laser)<br>
+            • <strong>DDV :</strong> Dossier de Validation expérimentale
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRIPTYQUE ATTENDU : SAVOIR-FAIRE / SAVOIR-ÊTRE / RESSOURCES -->
+    <h2 class="section-title reveal">Bilan des acquis de la SAÉ</h2>
+    <div class="triptyque-grid">
+      <div class="card triptyque-card sf reveal">
+        <span class="badge badge-blue">Technique</span>
+        <h3>Savoir-faire</h3>
+        <ul>
+          <li>Traduire un cahier des charges en 4 blocs fonctionnels (Énergie, Acquisition, Traitement, Action).</li>
+          <li>Dimensionner un pont diviseur de précision et des comparateurs à AOP (MCP6002) + logique combinatoire (74HC02).</li>
+          <li>Simuler le comportement électrique sous Proteus ISIS et placer/router un PCB sous ARES.</li>
+          <li>Concevoir un visuel vectoriel sous Inkscape pour l'usinage laser.</li>
+        </ul>
+      </div>
+
+      <div class="card triptyque-card se reveal">
+        <span class="badge badge-green">Humain &amp; Projet</span>
+        <h3>Savoir-être</h3>
+        <ul>
+          <li><strong>Travail collaboratif :</strong> Répartition efficace des tâches et entraide au sein d'une équipe de 4 étudiants (Équipe 43).</li>
+          <li><strong>Rigueur &amp; Autonomie :</strong> Vérification systématique des empreintes composants et des règles de routage avant fabrication.</li>
+          <li><strong>Gestion de projet (Manager) :</strong> Respect des jalons sur 40 heures, suivi du budget (&lt; 20 €) et rédaction structurée des dossiers techniques.</li>
+        </ul>
+      </div>
+
+      <div class="card triptyque-card res reveal">
+        <span class="badge badge-amber">Matières BUT GEII</span>
+        <h3>Ressources mobilisées</h3>
+        <ul>
+          <li><strong>Électronique analogique :</strong> Étude des capteurs linéaires (LM35), amplificateurs opérationnels en comparateur et régulation de tension.</li>
+          <li><strong>Électronique numérique :</strong> Algèbre de Boole et portes logiques (fonction NON-OU / 74HC02).</li>
+          <li><strong>CAO Électronique :</strong> Prise en main de la suite Proteus (ISIS / ARES).</li>
+          <li><strong>Culture &amp; Communication :</strong> Rédaction professionnelle des dossiers DDC/DDF et soutenance orale.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GALERIE DE PREUVES TECHNIQUES (SIMULATIONS ISIS & PCB ARES) -->
+    <h2 class="section-title reveal">Preuves techniques : Simulations &amp; Routage</h2>
+    <div class="proofs-grid">
+      <!-- PREUVE 1 : SIMULATION EAU FROIDE -->
+      <div class="card proof-item reveal">
+        <div>
+          <img src="simu-froide.png" alt="Simulation ISIS Eau Froide 20°C" class="proof-img light-bg">
+          <span class="badge badge-blue" style="margin-bottom: 8px;">Simulation ISIS • Cas 1</span>
+          <h4>Test seuil bas : Eau froide (T = 20 °C / V3 = 0,20 V)</h4>
+          <p>Lorsque la tension image de la température (0,20 V) est inférieure au seuil 36 °C (0,36 V), la sortie <code>EAU FROIDE</code> bascule à <strong>+5,00 V</strong> (LED bleue allumée).</p>
+        </div>
+      </div>
+
+      <!-- PREUVE 2 : SIMULATION EAU TIÈDE -->
+      <div class="card proof-item reveal">
+        <div>
+          <img src="simu-tiede.png" alt="Simulation ISIS Eau Tiède 38°C" class="proof-img light-bg">
+          <span class="badge badge-green" style="margin-bottom: 8px;">Simulation ISIS • Cas 2</span>
+          <h4>Test plage nominale : Eau tiède (T = 38 °C / V3 = 0,38 V)</h4>
+          <p>Entre 36 °C et 39 °C, les deux comparateurs sont à 0 V : la porte NOR <code>74HC02</code> active la sortie <code>EAU TIEDE</code> à <strong>+5,00 V</strong> (LED verte allumée).</p>
+        </div>
+      </div>
+
+      <!-- PREUVE 3 : SIMULATION EAU CHAUDE -->
+      <div class="card proof-item reveal">
+        <div>
+          <img src="simu-chaude.png" alt="Simulation ISIS Eau Chaude 57°C" class="proof-img light-bg">
+          <span class="badge badge-amber" style="margin-bottom: 8px;">Simulation ISIS • Cas 3</span>
+          <h4>Test seuil haut : Eau chaude (T &gt; 39 °C / V3 = 0,57 V)</h4>
+          <p>Au-dessus du seuil de sécurité de 39 °C (0,39 V), le comparateur <code>AOP:A</code> bascule et active la sortie <code>EAU CHAUDE</code> à <strong>+5,00 V</strong> (alerte LED rouge).</p>
+        </div>
+      </div>
+
+      <!-- PREUVE 4 : IMPLANTATION PCB ARES -->
+      <div class="card proof-item reveal">
+        <div>
+          <img src="pcb-ares.png" alt="Placement composants PCB sous ARES" class="proof-img">
+          <span class="badge badge-navy" style="margin-bottom: 8px;">CAO PCB • Proteus ARES</span>
+          <h4>Placement des composants sur circuit imprimé (TDB-EQ43)</h4>
+          <p>Organisation logique de gauche à droite suivant le flux du signal : alimentation (<code>J1</code>, <code>SW1</code>, <code>U6</code>), capteur et pont de seuils (<code>U3</code>, <code>R1–R5</code>), traitement (<code>MCP6002</code>, <code>74HC02</code>) et LEDs en bord de carte.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRISE DES 4 ÉTAPES DE LA SAÉ S1 -->
+  <section class="section-ice">
+    <div style="max-width: 1140px; margin: 0 auto;">
+      <span class="badge badge-blue">Déroulement sur 40 heures</span>
+      <h2 style="color: var(--navy); font-size: 25px; margin-top: 8px;">Les 4 étapes de réalisation</h2>
+
+      <div class="timeline-grid">
+        <div class="phase-card phase-done reveal">
+          <div>
+            <span class="badge badge-green">Terminé</span>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Séances 1 à 6</p>
+            <h3>1. Conception préliminaire</h3>
+            <ul>
+              <li>Analyse des exigences et architecture en 4 blocs.</li>
+              <li>Dimensionnement LM35, ponts de seuils, MCP6002 et 74HC02.</li>
+              <li>Validation par simulations sous Proteus ISIS.</li>
+            </ul>
+          </div>
+          <div class="phase-footer">
+            <strong>Livrables :</strong> DDC, simulations ISIS<br>
+            <div style="margin-top: 8px;"><span class="badge badge-blue">CONCEVOIR C.1 – C.3</span></div>
+          </div>
+        </div>
+
+        <div class="phase-card phase-active reveal">
+          <div>
+            <span class="badge badge-amber">En cours</span>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Séances 7 à 12</p>
+            <h3>2. Conception détaillée</h3>
+            <ul>
+              <li>Placement et routage complet du PCB sous ARES (100 × 60 mm).</li>
+              <li>Création du logo vectoriel sous Inkscape.</li>
+              <li>Finalisation des dossiers DDC et DDF + nomenclature.</li>
+            </ul>
+          </div>
+          <div class="phase-footer">
+            <strong>Livrables :</strong> DDF, fichiers Gerber<br>
+            <div style="margin-top: 8px;"><span class="badge badge-blue">CONCEVOIR C.4</span></div>
+          </div>
+        </div>
+
+        <div class="phase-card reveal">
+          <div>
+            <span class="badge badge-gray">À venir</span>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Séances 12 à 15</p>
+            <h3>3. Fabrication</h3>
+            <ul>
+              <li>Gravure et perçage du circuit imprimé.</li>
+              <li>Brasage des composants (U3, U6, MCP6002, 74HC02, LEDs).</li>
+              <li>Usinage laser du boîtier et intégration mécanique.</li>
+            </ul>
+          </div>
+          <div class="phase-footer">
+            <strong>Livrables :</strong> Prototype assemblé<br>
+            <div style="margin-top: 8px;"><span class="badge badge-amber">VÉRIFIER V.1</span></div>
+          </div>
+        </div>
+
+        <div class="phase-card reveal">
+          <div>
+            <span class="badge badge-gray">À venir</span>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Séances 16 à 20</p>
+            <h3>4. Vérification</h3>
+            <ul>
+              <li>Tests fonctionnels et étalonnage (36,0 °C et 39,0 °C).</li>
+              <li>Mesure de l'autonomie sur batterie LiPo 2S.</li>
+              <li>Rédaction du Dossier de Validation (DDV).</li>
+            </ul>
+          </div>
+          <div class="phase-footer">
+            <strong>Livrables :</strong> DDV, soutenance orale<br>
+            <div style="margin-top: 8px;"><span class="badge badge-amber">VÉRIFIER V.2</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-card">
+      <h3 style="font-size: 21px;">Victor Souan — Portfolio BUT GEII</h3>
+      <p style="font-size: 14.5px; color: #bae6fd;">IUT de Bordeaux • Site de Gradignan</p>
+      <div class="footer-actions">
+        <a href="mailto:victor.souan@etu.u-bordeaux.fr" class="footer-btn btn-mail">✉️ victor.souan@etu.u-bordeaux.fr</a>
+        <button class="footer-btn btn-in" data-copy-email="victor.souan@etu.u-bordeaux.fr">📋 Copier l'email</button>
+        <a href="https://www.linkedin.com/in/victor-souan/" target="_blank" rel="noopener noreferrer" class="footer-btn btn-in">LinkedIn ↗</a>
+      </div>
+      <p style="font-size: 13px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px;">© 2026 Victor Souan — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" title="Haut de page">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
