@@ -46,10 +46,10 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #e2e8f0;
-  padding: 14px 36px;
+  padding: 12px 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,37 +58,51 @@ header {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   text-decoration: none;
-  color: var(--primary);
-  font-size: 20px;
+  color: var(--navy);
+  font-size: 19px;
   font-weight: 700;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;
 }
+
 .brand-logo {
-  height: 34px;
+  height: 36px;
   width: auto;
   display: block;
-  padding-right: 12px;
+  padding-right: 14px;
   border-right: 1.5px solid #cbd5e1;
 }
 
-@media (max-width: 520px) {
-  .brand-logo { height: 26px; padding-right: 8px; }
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-ice);
+  padding: 5px 10px;
+  border-radius: 99px;
+  font-size: 12.5px;
+  font-weight: 700;
 }
-.brand-badge {
+
+.lang-switch a {
+  padding: 2px 7px;
+  border-radius: 99px;
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.lang-switch a.active-lang {
   background: var(--navy);
   color: #ffffff;
-  font-size: 11px;
-  padding: 3px 8px;
-  border-radius: 6px;
-  letter-spacing: 0.5px;
 }
 
 nav > ul {
   list-style: none;
   display: flex;
-  gap: 24px;
+  gap: 22px;
   align-items: center;
 }
 
@@ -117,7 +131,7 @@ nav a:hover, nav a.active {
   top: 100%;
   left: 0;
   background: #ffffff;
-  min-width: 210px;
+  min-width: 225px;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   box-shadow: var(--shadow-md);
@@ -152,7 +166,7 @@ nav li:hover .dropdown-menu {
   color: var(--navy);
 }
 
-/* --- HERO BANNER EN GRAND FORMAT (PLEIN ÉCRAN) --- */
+/* --- HERO BANNER EN GRAND FORMAT --- */
 .hero {
   background: linear-gradient(rgba(10, 18, 36, 0.18), rgba(10, 18, 36, 0.28)),
               url('banniere-geii.png') center/cover no-repeat;
@@ -289,6 +303,76 @@ nav li:hover .dropdown-menu {
   color: #ffffff;
 }
 
+/* --- VISIONNEUSE PLEIN ÉCRAN (LIGHTBOX) --- */
+.proof-img {
+  cursor: zoom-in;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.proof-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(2, 155, 223, 0.25);
+}
+
+#imageLightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(6px);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  z-index: 2000;
+}
+
+#imageLightbox.active {
+  display: flex;
+  animation: fadeInZoom 0.22s ease;
+}
+
+@keyframes fadeInZoom {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+#lightboxImg {
+  max-width: 92vw;
+  max-height: 80vh;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  background: #ffffff;
+}
+
+#lightboxCaption {
+  color: #e0f2fe;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 16px;
+  text-align: center;
+}
+
+#lightboxClose {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#lightboxClose:hover {
+  background: var(--primary);
+}
+
 /* --- BOUTON RETOUR EN HAUT --- */
 #backToTop {
   position: fixed;
@@ -365,7 +449,9 @@ footer {
 
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 820px) {
-  header { padding: 14px 20px; }
+  header { padding: 12px 18px; }
+  .brand-logo { height: 28px; padding-right: 10px; }
+  .brand { font-size: 16px; gap: 10px; }
   .menu-toggle { display: block; }
   nav {
     display: none;
@@ -384,72 +470,4 @@ footer {
   .hero h1 { font-size: 32px; }
   .hero p { font-size: 16px; }
   .hero { padding: 80px 16px; min-height: 55vh; }
-}/* --- VISIONNEUSE PLEIN ÉCRAN (LIGHTBOX) --- */
-.proof-img {
-  cursor: zoom-in;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.proof-img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(2, 155, 223, 0.25);
-}
-
-#imageLightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.92);
-  backdrop-filter: blur(6px);
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
-  z-index: 2000;
-}
-
-#imageLightbox.active {
-  display: flex;
-  animation: fadeInZoom 0.22s ease;
-}
-
-@keyframes fadeInZoom {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-#lightboxImg {
-  max-width: 92vw;
-  max-height: 80vh;
-  border-radius: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  background: #ffffff;
-}
-
-#lightboxCaption {
-  color: #e0f2fe;
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 16px;
-  text-align: center;
-}
-
-#lightboxClose {
-  position: absolute;
-  top: 22px;
-  right: 28px;
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-#lightboxClose:hover {
-  background: var(--primary);
 }

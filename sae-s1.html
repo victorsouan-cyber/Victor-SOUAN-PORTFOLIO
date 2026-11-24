@@ -32,7 +32,6 @@
       color: #ffffff;
     }
 
-    /* CHIFFRES CLÉS DU CAHIER DES CHARGES */
     .specs-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -103,7 +102,6 @@
       border-color: var(--primary);
     }
 
-    /* GRILLE GRILLE D'ÉVALUATION : SAVOIR-FAIRE / SAVOIR-ÊTRE / RESSOURCES */
     .triptyque-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -135,7 +133,6 @@
       margin-bottom: 7px;
     }
 
-    /* GALERIE DE PREUVES TECHNIQUES (ISIS / ARES) */
     .proofs-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -175,7 +172,6 @@
       color: var(--text-muted);
     }
 
-    /* FRISE 4 PHASES */
     .timeline-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -228,7 +224,8 @@
 
   <header>
     <a href="index.html" class="brand">
-      SOUAN Victor <span class="brand-badge">BUT GEII</span>
+      <img src="logoGEII_retina.png" alt="Logo GEII IUT de Bordeaux" class="brand-logo">
+      <span>SOUAN Victor</span>
     </a>
     <button class="menu-toggle" aria-label="Menu">☰</button>
     <nav>
@@ -254,6 +251,11 @@
         </li>
         <li><a href="parcours.html">Parcours &amp; CV</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li class="lang-switch">
+          <a href="index.html" class="active-lang">FR</a>
+          <a href="index-en.html">EN</a>
+          <a href="index-es.html">ES</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -267,7 +269,6 @@
   <div class="container">
     <a href="projets.html" class="breadcrumb">← Retour à tous les projets</a>
 
-    <!-- CHIFFRES CLÉS DU CAHIER DES CHARGES -->
     <div class="specs-grid reveal">
       <div class="spec-box">
         <span>Référence Projet</span>
@@ -288,7 +289,6 @@
     </div>
 
     <div class="project-two-cols">
-      <!-- DESCRIPTION TECHNIQUE EXACTE DU SCHÉMA TDB-EQ43 -->
       <div class="card reveal">
         <span class="badge badge-amber">Semestre 1 • Équipe 43</span>
         <h2 style="color: var(--navy); font-size: 23px; margin: 12px 0 16px;">Architecture électronique du système</h2>
@@ -311,7 +311,6 @@
         </div>
       </div>
 
-      <!-- ENCADRÉ COMPÉTENCES & LIVRABLES -->
       <div style="display: flex; flex-direction: column; gap: 20px;">
         <div class="card reveal">
           <h4 style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 14px;">Compétences validées</h4>
@@ -342,7 +341,6 @@
       </div>
     </div>
 
-    <!-- TRIPTYQUE ATTENDU : SAVOIR-FAIRE / SAVOIR-ÊTRE / RESSOURCES -->
     <h2 class="section-title reveal">Bilan des acquis de la SAÉ</h2>
     <div class="triptyque-grid">
       <div class="card triptyque-card sf reveal">
@@ -378,10 +376,8 @@
       </div>
     </div>
 
-    <!-- GALERIE DE PREUVES TECHNIQUES (SIMULATIONS ISIS & PCB ARES) -->
     <h2 class="section-title reveal">Preuves techniques : Simulations &amp; Routage</h2>
     <div class="proofs-grid">
-      <!-- PREUVE 1 : SIMULATION EAU FROIDE -->
       <div class="card proof-item reveal">
         <div>
           <img src="simu-froide.png" alt="Simulation ISIS Eau Froide 20°C" class="proof-img light-bg">
@@ -391,7 +387,6 @@
         </div>
       </div>
 
-      <!-- PREUVE 2 : SIMULATION EAU TIÈDE -->
       <div class="card proof-item reveal">
         <div>
           <img src="simu-tiede.png" alt="Simulation ISIS Eau Tiède 38°C" class="proof-img light-bg">
@@ -401,7 +396,6 @@
         </div>
       </div>
 
-      <!-- PREUVE 3 : SIMULATION EAU CHAUDE -->
       <div class="card proof-item reveal">
         <div>
           <img src="simu-chaude.png" alt="Simulation ISIS Eau Chaude 57°C" class="proof-img light-bg">
@@ -411,7 +405,6 @@
         </div>
       </div>
 
-      <!-- PREUVE 4 : IMPLANTATION PCB ARES -->
       <div class="card proof-item reveal">
         <div>
           <img src="pcb-ares.png" alt="Placement composants PCB sous ARES" class="proof-img">
@@ -423,7 +416,6 @@
     </div>
   </div>
 
-  <!-- FRISE DES 4 ÉTAPES DE LA SAÉ S1 -->
   <section class="section-ice">
     <div style="max-width: 1140px; margin: 0 auto;">
       <span class="badge badge-blue">Déroulement sur 40 heures</span>

@@ -27,7 +27,10 @@
 <body>
 
   <header>
-    <a href="index.html" class="brand">SOUAN Victor <span class="brand-badge">BUT GEII</span></a>
+    <a href="index.html" class="brand">
+      <img src="logoGEII_retina.png" alt="Logo GEII IUT de Bordeaux" class="brand-logo">
+      <span>SOUAN Victor</span>
+    </a>
     <button class="menu-toggle" aria-label="Menu">☰</button>
     <nav>
       <ul>
@@ -52,6 +55,11 @@
         </li>
         <li><a href="parcours.html">Parcours &amp; CV</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li class="lang-switch">
+          <a href="index.html" class="active-lang">FR</a>
+          <a href="index-en.html">EN</a>
+          <a href="index-es.html">ES</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -65,44 +73,40 @@
   <div class="container">
     <a href="competences.html" class="breadcrumb">← Retour au référentiel de compétences</a>
 
-    <!-- C.1 -->
     <div class="card ac-detail-card reveal">
       <span class="badge badge-navy">Critère C.1</span>
       <h2>C.1 : J'identifie les fonctions demandées à la lecture du cahier des charges (architecture fonctionnelle - sans solution technique)</h2>
       <div class="proof-box">
-        <h4>Preuve S1 — SAÉ Thermomètre de bain</h4>
-        <p>Analyse du cahier des charges client (plage de mesure, seuils d'alerte à 36,0 °C et 39,0 °C, autonomie de 24 h) et découpage du système en blocs fonctionnels (acquérir la température, traiter et comparer le signal, alerter l'utilisateur, alimenter le système) sans imposer de composants dans un premier temps.</p>
+        <h4>Preuve S1 — SAÉ Thermomètre de bain (TDB-EQ43)</h4>
+        <p>Analyse du cahier des charges (seuils d'alerte à 36,0 °C et 39,0 °C, autonomie de 24 h, budget &lt; 20 €) et découpage du système en 4 blocs fonctionnels indépendants : <strong>Énergie</strong>, <strong>Acquisition</strong>, <strong>Traitement</strong> et <strong>Action</strong>.</p>
         <div style="margin-top: 10px;"><a href="sae-s1.html" class="badge badge-blue" style="text-decoration: none;">Voir la SAÉ S1 ↗</a></div>
       </div>
     </div>
 
-    <!-- C.2 -->
     <div class="card ac-detail-card reveal">
       <span class="badge badge-navy">Critère C.2</span>
       <h2>C.2 : Je propose une solution technique pour répondre à une fonction</h2>
       <div class="proof-box">
-        <h4>Preuve S1 — SAÉ Thermomètre de bain</h4>
-        <p>Choix et dimensionnement des composants répondant à chaque bloc fonctionnel : capteur analogique linéaire <strong>LM35</strong> (10 mV/°C) pour la mesure, amplificateur opérationnel <strong>MCP6002</strong> pour le conditionnement et la comparaison des seuils, batterie <strong>LiPo 2S</strong> pour l'autonomie, tout en respectant l'enveloppe budgétaire (&lt; 20 €).</p>
+        <h4>Preuve S1 — Choix des composants (TDB-EQ43)</h4>
+        <p>Sélection et dimensionnement des composants : capteur analogique linéaire <strong>LM35</strong> (10 mV/°C), pont diviseur de seuils (<code>R1–R5</code>), double comparateur <strong>MCP6002</strong>, porte logique NOR <strong>74HC02</strong>, régulateur <strong>LM78L05ACZ</strong> sur batterie LiPo 2S et signalisation par 3 LEDs (Bleue, Verte, Rouge).</p>
       </div>
     </div>
 
-    <!-- C.3 -->
     <div class="card ac-detail-card reveal">
       <span class="badge badge-navy">Critère C.3</span>
       <h2>C.3 : J'affine une solution technique en m'appuyant sur un maquettage numérique et/ou matériel</h2>
       <div class="proof-box">
-        <h4>Preuve S1 — Simulation &amp; Maquettage</h4>
-        <p>Saisie du schéma structurel et simulation électrique sous <strong>Proteus ISIS</strong> afin de vérifier les tensions de basculement et le gain de l'étage d'amplification avant de lancer le routage du circuit imprimé.</p>
+        <h4>Preuve S1 — Simulations sous Proteus ISIS</h4>
+        <p>Modélisation complète sous <strong>Proteus ISIS</strong> et validation des trois cas de fonctionnement (eau froide à 0,20 V, eau tiède à 0,38 V et eau chaude à 0,57 V) avant le lancement du routage PCB.</p>
       </div>
     </div>
 
-    <!-- C.4 -->
     <div class="card ac-detail-card reveal">
       <span class="badge badge-navy">Critère C.4</span>
       <h2>C.4 : Je rédige un dossier de conception et de fabrication</h2>
       <div class="proof-box">
         <h4>Preuve S1 — Dossiers DDC / DDF &amp; Routage ARES</h4>
-        <p>Rédaction du <strong>Dossier de Conception (DDC)</strong> et du <strong>Dossier de Définition (DDF)</strong> : routage complet du circuit imprimé (100 × 60 mm) sous <strong>ARES</strong>, génération des fichiers Gerber, plan de perçage, nomenclature des composants et dessin vectoriel sous <strong>Inkscape</strong> pour la gravure laser du boîtier.</p>
+        <p>Rédaction du <strong>Dossier de Conception (DDC)</strong> et du <strong>Dossier de Définition (DDF)</strong> : placement et routage du circuit imprimé (100 × 60 mm) sous <strong>ARES</strong>, fichiers Gerber, nomenclature et dessin vectoriel sous <strong>Inkscape</strong> pour la gravure laser du boîtier.</p>
       </div>
     </div>
   </div>

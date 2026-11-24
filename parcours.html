@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parcours & CV — SOUAN Victor</title>
+  <title>Parcours, Outils & CV — SOUAN Victor</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     .hero-sub {
-      min-height: 290px !important;
-      padding: 75px 20px !important;
+      min-height: 280px !important;
+      padding: 70px 20px !important;
     }
 
-    /* FRISE CHRONOLOGIQUE VERTICALE */
     .v-timeline {
       position: relative;
       max-width: 820px;
-      margin: 0 auto 44px;
+      margin: 0 auto 48px;
       padding-left: 34px;
     }
 
@@ -75,43 +74,53 @@
       margin-bottom: 10px;
     }
 
-    .v-item p, .v-item ul {
+    .v-item p {
       font-size: 14.5px;
       color: var(--text-muted);
     }
 
-    .v-item ul {
-      padding-left: 18px;
-      margin-top: 6px;
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 48px;
     }
 
-    .v-badges {
+    .tool-card {
+      border-top: 4px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tool-card.lab { border-top-color: #f59e0b; }
+    .tool-card.dev { border-top-color: var(--navy); }
+
+    .tool-card h3 {
+      color: var(--navy);
+      font-size: 18px;
+      margin: 10px 0 14px;
+    }
+
+    .tool-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 8px;
+      gap: 8px;
+      margin-bottom: 14px;
     }
 
-    .intro-parcours {
-      max-width: 820px;
-      margin: 0 auto 30px;
-      font-size: 15.5px;
-      color: var(--text-muted);
-    }
-
-    .extra-card {
-      max-width: 820px;
-      margin: 0 auto 30px;
-    }
-
-    .extra-card h3 {
+    .tool-pill {
+      background: #f1f5f9;
       color: var(--navy);
-      font-size: 19px;
-      margin-bottom: 8px;
+      border: 1px solid #cbd5e1;
+      padding: 5px 11px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    .extra-card p {
-      font-size: 14.5px;
+    .tool-card p {
+      font-size: 13.5px;
       color: var(--text-muted);
     }
 
@@ -126,13 +135,18 @@
       flex-wrap: wrap;
       gap: 20px;
     }
+
+    @media (max-width: 860px) {
+      .tools-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
   <header>
     <a href="index.html" class="brand">
-      SOUAN Victor <span class="brand-badge">BUT GEII</span>
+      <img src="logoGEII_retina.png" alt="Logo GEII IUT de Bordeaux" class="brand-logo">
+      <span>SOUAN Victor</span>
     </a>
     <button class="menu-toggle" aria-label="Menu">☰</button>
     <nav>
@@ -141,108 +155,82 @@
         <li>
           <a href="projets.html">Projets &amp; SAÉ ▾</a>
           <ul class="dropdown-menu">
-            <li><a href="projets.html#sae-s1">SAÉ S1 — Thermomètre de bain</a></li>
-            <li><a href="projets.html#tp-arduino">TP &amp; Automatismes</a></li>
-            <li><a href="projets.html#sae-s2">SAÉ S2 — Kart à hélice</a></li>
+            <li><a href="projets.html">Tous les projets</a></li>
+            <li><a href="sae-s1.html">SAÉ S1 — Thermomètre de bain</a></li>
           </ul>
         </li>
         <li>
           <a href="competences.html">Compétences ▾</a>
           <ul class="dropdown-menu">
-            <li><a href="competences.html#concevoir">01. Concevoir</a></li>
-            <li><a href="competences.html#verifier">02. Vérifier</a></li>
-            <li><a href="competences.html#manager">03. Manager</a></li>
+            <li><a href="competences.html">Vue d'ensemble</a></li>
+            <li><a href="comp-concevoir.html">Concevoir (C.1 à C.4)</a></li>
+            <li><a href="comp-verifier.html">Vérifier (V.1 à V.2)</a></li>
+            <li><a href="comp-maintenir.html">Maintenir (M.1 à M.2)</a></li>
+            <li><a href="comp-installer.html">Installer — EME (I.2)</a></li>
+            <li><a href="comp-manager.html">Manager (G.1 à G.3)</a></li>
           </ul>
         </li>
         <li><a href="parcours.html" class="active">Parcours &amp; CV</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li class="lang-switch">
+          <a href="index.html" class="active-lang">FR</a>
+          <a href="index-en.html">EN</a>
+          <a href="index-es.html">ES</a>
+        </li>
       </ul>
     </nav>
   </header>
 
   <section class="hero hero-sub">
     <div class="hero-bar"></div>
-    <h1>Parcours &amp; CV</h1>
-    <p>Formation académique, expériences professionnelles et engagements</p>
+    <h1>Parcours, Outils &amp; CV</h1>
+    <p>Formation académique, environnement technique, expériences et engagements</p>
   </section>
 
   <div class="container">
     <h2 class="section-title reveal">Mon parcours chronologique</h2>
 
-    <p class="intro-parcours reveal">
-      Des sciences au terrain, en passant par le sport et l'engagement collectif : un parcours construit
-      sur la rigueur, l'autonomie et le travail d'équipe, qui m'a mené vers le BUT GEII.
-    </p>
-
     <div class="v-timeline">
-
-      <!-- 1. BUT GEII -->
       <div class="v-item current reveal">
         <div class="v-dot"></div>
         <div class="card">
           <div class="v-date">Depuis septembre 2026 • En cours</div>
-          <div class="v-badges">
-            <span class="badge badge-blue">Concevoir</span>
-            <span class="badge badge-blue">Vérifier</span>
-            <span class="badge badge-blue">Manager</span>
-          </div>
           <h3>BUT Génie Électrique et Informatique Industrielle (GEII)</h3>
           <div class="v-place">IUT de Bordeaux — Site de Gradignan (33)</div>
-          <p>Formation en électronique analogique et numérique, informatique industrielle (C/C++, Arduino), automatismes et énergie électrique. Objectif de spécialisation en 2e année vers le parcours <strong>Électricité et Maîtrise de l'Énergie (EME)</strong>.</p>
+          <p>Formation en électronique analogique et numérique, informatique industrielle, automatismes et énergie électrique. Objectif de spécialisation en 2e année vers le parcours <strong>Électricité et Maîtrise de l'Énergie (EME)</strong>.</p>
         </div>
       </div>
 
-      <!-- 2. TRAVAUX SAISONNIERS -->
       <div class="v-item reveal">
         <div class="v-dot"></div>
         <div class="card">
           <div class="v-date">Étés 2025 &amp; 2026 • Expérience professionnelle</div>
-          <div class="v-badges">
-            <span class="badge badge-blue">Manager</span>
-          </div>
           <h3>Conducteur de tracteur et plateau viticole</h3>
           <div class="v-place">Vignobles en Entre-deux-Mers (Gironde)</div>
-          <p>Conduite d'engins agricoles et transport de vendanges (crémant) en période de récolte : rigueur, gestion des délais, autonomie et respect strict des règles de sécurité.</p>
+          <p>Conduite d'engins agricoles et transport de vendanges (crémant) en période de récolte : rigueur, gestion des délais, autonomie, respect strict des règles de sécurité et entretien mécanique de premier niveau.</p>
         </div>
       </div>
 
-      <!-- 3. LYCÉE -->
       <div class="v-item reveal">
         <div class="v-dot"></div>
         <div class="card">
-          <div class="v-date">2023 – juin 2026 • Diplôme obtenu</div>
+          <div class="v-date">2023 – 2026 • Diplôme obtenu</div>
           <h3>Baccalauréat Général — Mention Bien</h3>
           <div class="v-place">Lycée Jean Renou — La Réole (33)</div>
           <p>Spécialités <strong>Mathématiques</strong> et <strong>Physique-Chimie</strong>. Acquisition de bases scientifiques solides en électricité, mécanique, ondes et modélisation mathématique.</p>
         </div>
       </div>
 
-      <!-- 4. ENGAGEMENT -->
       <div class="v-item reveal">
         <div class="v-dot"></div>
         <div class="card">
-          <div class="v-date">Collège &amp; lycée • Engagement</div>
-          <div class="v-badges">
-            <span class="badge badge-blue">Manager</span>
-          </div>
-          <h3>Délégué de classe, conseil d'administration et conseil départemental jeune</h3>
-          <div class="v-place">Collège Robert Barrière • Lycée Jean Renou • Gironde</div>
-          <p>Représentation des élèves, prise de parole en instance et participation aux décisions : écoute, organisation et défense d'un point de vue collectif.</p>
+          <div class="v-date">2022 – 2024 • Découverte professionnelle</div>
+          <h3>Stages d'observation en milieu technique et industriel</h3>
+          <div class="v-place">Gironde (33)</div>
+          <p>Immersion en entreprise permettant de découvrir les métiers de terrain, l'organisation de chantiers techniques et les exigences de qualité en milieu professionnel.</p>
         </div>
       </div>
 
-      <!-- 5. STAGES D'OBSERVATION -->
-      <div class="v-item reveal">
-        <div class="v-dot"></div>
-        <div class="card">
-          <div class="v-date">3e &amp; 2nde • Découverte professionnelle</div>
-          <h3>Stages d'observation</h3>
-          <div class="v-place">Stade Langonnais (athlétisme) • La Poste</div>
-          <p>Stage de 3e au Stade Langonnais (club d'athlétisme), puis stage de 2nde à La Poste : découverte du fonctionnement d'une structure, du travail en équipe et des exigences d'un service au public.</p>
-        </div>
-      </div>
-
-      <!-- 6. COLLÈGE -->
       <div class="v-item reveal">
         <div class="v-dot"></div>
         <div class="card">
@@ -252,28 +240,62 @@
         </div>
       </div>
 
-      <!-- 7. ATHLÉTISME -->
       <div class="v-item reveal">
         <div class="v-dot"></div>
         <div class="card">
-          <div class="v-date">Depuis 2014 • Sport</div>
-          <div class="v-badges">
-            <span class="badge badge-blue">Manager</span>
-          </div>
-          <h3>Athlétisme en compétition</h3>
-          <div class="v-place">Course sur route et demi-fond (5 km / 10 km)</div>
-          <p>Pratique régulière en compétition développant persévérance, gestion de l'effort et dépassement de soi. Entraînement structuré en plan, avec suivi des performances et des objectifs chiffrés.</p>
+          <div class="v-date">Depuis 2014 • Sport &amp; Bénévolat</div>
+          <h3>Athlétisme en compétition &amp; Bénévolat associatif</h3>
+          <div class="v-place">Course sur route, demi-fond et trail (5 km / 10 km)</div>
+          <p>Pratique régulière en compétition développant persévérance, gestion de l'effort et dépassement de soi. Participation active à l'organisation et au balisage d'épreuves locales (Course de la Saint-Clair).</p>
         </div>
       </div>
     </div>
 
-    <!-- COMPÉTENCES COMPLÉMENTAIRES -->
-    <div class="card extra-card reveal">
-      <h3>Compétences complémentaires</h3>
-      <p>Anglais A2 • Espagnol A2 • Permis B</p>
+    <h2 class="section-title reveal">Mes outils &amp; Environnement technique</h2>
+    <div class="tools-grid">
+      <div class="card tool-card reveal">
+        <div>
+          <span class="badge badge-blue">Conception &amp; CAO</span>
+          <h3>Électronique &amp; Design</h3>
+          <div class="tool-tags">
+            <span class="tool-pill">Proteus ISIS</span>
+            <span class="tool-pill">Proteus ARES</span>
+            <span class="tool-pill">Inkscape</span>
+          </div>
+        </div>
+        <p>Saisie de schémas structurels, simulation électrique, placement et routage de circuits imprimés (PCB) et dessin vectoriel pour gravure laser.</p>
+      </div>
+
+      <div class="card tool-card lab reveal">
+        <div>
+          <span class="badge badge-amber">Laboratoire GEII</span>
+          <h3>Instrumentation &amp; Mesure</h3>
+          <div class="tool-tags">
+            <span class="tool-pill">Oscilloscope numérique</span>
+            <span class="tool-pill">GBF</span>
+            <span class="tool-pill">Multimètre</span>
+            <span class="tool-pill">Alimentation stabilisée</span>
+          </div>
+        </div>
+        <p>Relevés de signaux temporels et fréquentiels, vérification de seuils analogiques, tests de continuité et validation expérimentale sur maquette.</p>
+      </div>
+
+      <div class="card tool-card dev reveal">
+        <div>
+          <span class="badge badge-navy">Code &amp; Ingénierie</span>
+          <h3>Développement &amp; Bureautique</h3>
+          <div class="tool-tags">
+            <span class="tool-pill">HTML / CSS / JS</span>
+            <span class="tool-pill">VS Code</span>
+            <span class="tool-pill">GitHub Pages</span>
+            <span class="tool-pill">C / Arduino IDE</span>
+            <span class="tool-pill">Google Workspace</span>
+          </div>
+        </div>
+        <p>Développement web sur-mesure, gestion de versions, programmation embarquée sur microcontrôleur et rédaction de dossiers d'ingénierie (DDC, DDF, DDV).</p>
+      </div>
     </div>
 
-    <!-- ENCART TÉLÉCHARGEMENT CV -->
     <div class="card cv-banner reveal">
       <div>
         <span class="badge badge-blue">Curriculum Vitae</span>

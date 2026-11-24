@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Visionneuse plein écran (Lightbox) au clic sur les images de preuves
+  // 6. Visionneuse plein écran (Lightbox) au clic sur les preuves
   const zoomableImages = document.querySelectorAll('.proof-img');
   if (zoomableImages.length > 0) {
     const lightbox = document.createElement('div');

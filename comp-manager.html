@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compétence MANAGER — SOUAN Victor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero-sub { min-height: 260px !important; padding: 65px 20px !important; }
+    .breadcrumb {
+      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+      color: var(--navy); font-weight: 600; font-size: 14.5px; margin-bottom: 24px;
+      padding: 8px 14px; background: var(--bg-ice); border-radius: 8px; transition: 0.2s;
+    }
+    .breadcrumb:hover { background: var(--primary); color: #ffffff; }
+    .ac-detail-card { margin-bottom: 24px; border-left: 5px solid #334155; }
+    .ac-detail-card h2 { color: var(--navy); font-size: 19px; margin: 10px 0 12px; }
+    .proof-box {
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 16px 20px; margin-top: 12px;
+    }
+    .proof-box h4 { font-size: 13.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+    .proof-box p { font-size: 14.5px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">
+      <img src="logoGEII_retina.png" alt="Logo GEII IUT de Bordeaux" class="brand-logo">
+      <span>SOUAN Victor</span>
+    </a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li>
+          <a href="projets.html">Projets &amp; SAÉ ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="projets.html">Tous les projets</a></li>
+            <li><a href="sae-s1.html">SAÉ S1 — Thermomètre de bain</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="competences.html" class="active">Compétences ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="competences.html">Vue d'ensemble</a></li>
+            <li><a href="comp-concevoir.html">Concevoir (C.1 à C.4)</a></li>
+            <li><a href="comp-verifier.html">Vérifier (V.1 à V.2)</a></li>
+            <li><a href="comp-maintenir.html">Maintenir (M.1 à M.2)</a></li>
+            <li><a href="comp-installer.html">Installer — EME (I.2)</a></li>
+            <li><a href="comp-manager.html">Manager (G.1 à G.3)</a></li>
+          </ul>
+        </li>
+        <li><a href="parcours.html">Parcours &amp; CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="lang-switch">
+          <a href="index.html" class="active-lang">FR</a>
+          <a href="index-en.html">EN</a>
+          <a href="index-es.html">ES</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero hero-sub">
+    <div class="hero-bar"></div>
+    <h1>Compétence : MANAGER</h1>
+    <p>Critères G.1 à G.3 — Gestion de projet, communication et éthique</p>
+  </section>
+
+  <div class="container">
+    <a href="competences.html" class="breadcrumb">← Retour au référentiel de compétences</a>
+
+    <div class="card ac-detail-card reveal">
+      <span class="badge badge-navy">Critère G.1</span>
+      <h2>G.1 : Je rédige et archive différents documents professionnels (e-mails, supports de présentations, comptes rendus, rapports...) établis dans différentes langues (Français, Anglais, Espagnol...)</h2>
+      <div class="proof-box">
+        <h4>Preuves S1 — Documentation technique &amp; Communication multilingue</h4>
+        <p>• Rédaction structurée et archivage des dossiers techniques d'ingénierie (DDF, DDC) au sein de l'Équipe 43.<br>
+           • Réalisation d'un portfolio web trilingue (<strong>Français, Anglais, Espagnol</strong>) et présentation d'un support oral en <strong>Anglais</strong> autour de la formation BUT GEII.</p>
+      </div>
+    </div>
+
+    <div class="card ac-detail-card reveal">
+      <span class="badge badge-navy">Critère G.2</span>
+      <h2>G.2 : J'effectue des tâches administratives (passer des commandes, demander un devis, gestion d'un budget, ...)</h2>
+      <div class="proof-box">
+        <h4>Preuve S1 — Gestion budgétaire &amp; Nomenclature (SAÉ S1)</h4>
+        <p>Établissement de la nomenclature complète des composants (BOM) pour le thermomètre de bain <code>TDB-EQ43</code>, chiffrage des coûts unitaires et vérification de la contrainte budgétaire stricte du cahier des charges (<strong>coût total inférieur à 20 €</strong>).</p>
+      </div>
+    </div>
+
+    <div class="card ac-detail-card reveal">
+      <span class="badge badge-navy">Critère G.3</span>
+      <h2>G.3 : Je privilégie une démarche éthique pour répondre aux enjeux économiques, réglementaires et environnementaux de la Société</h2>
+      <div class="proof-box">
+        <h4>Preuve S1 — Éco-conception &amp; Sobriété</h4>
+        <p>Optimisation de la surface du circuit imprimé (<strong>100 × 60 mm</strong>) afin de limiter la consommation de matière première, sélection d'une alimentation rechargeable (batterie LiPo 2S) plutôt que des piles jetables, et respect des règles de sécurité électrique en milieu humide.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-card">
+      <h3 style="font-size: 21px;">Victor Souan — Portfolio BUT GEII</h3>
+      <p style="font-size: 14.5px; color: #bae6fd;">IUT de Bordeaux • Site de Gradignan</p>
+      <div class="footer-actions">
+        <a href="mailto:victor.souan@etu.u-bordeaux.fr" class="footer-btn btn-mail">✉️ victor.souan@etu.u-bordeaux.fr</a>
+        <button class="footer-btn btn-in" data-copy-email="victor.souan@etu.u-bordeaux.fr">📋 Copier l'email</button>
+        <a href="https://www.linkedin.com/in/victor-souan/" target="_blank" rel="noopener noreferrer" class="footer-btn btn-in">LinkedIn ↗</a>
+      </div>
+      <p style="font-size: 13px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px;">© 2026 Victor Souan — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" title="Haut de page">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

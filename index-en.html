@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOUAN Victor — Electrical Engineering &amp; Industrial Computing Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-card {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      border-left: 6px solid var(--primary);
+    }
+
+    .profile-photo {
+      width: 155px;
+      height: 155px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--bg-ice);
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+
+    .about-card h2 {
+      color: var(--navy);
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .about-card p {
+      color: var(--text-muted);
+      font-size: 15.5px;
+      margin-bottom: 18px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .quick-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .quick-card h3 {
+      color: var(--navy);
+      font-size: 20px;
+      margin-top: 8px;
+    }
+
+    .quick-card p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+    }
+
+    .project-highlight {
+      max-width: 960px;
+      margin: 36px auto 0;
+      border-top: 4px solid var(--navy);
+    }
+
+    @media (max-width: 820px) {
+      .about-card { flex-direction: column; text-align: center; }
+      .quick-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index-en.html" class="brand">
+      <img src="logoGEII_retina.png" alt="GEII IUT de Bordeaux Logo" class="brand-logo">
+      <span>SOUAN Victor</span>
+    </a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index-en.html" class="active">Home</a></li>
+        <li><a href="#project-en">Engineering Project</a></li>
+        <li><a href="#skills-en">Core Skills</a></li>
+        <li><a href="#background-en">Background</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="lang-switch">
+          <a href="index.html">FR</a>
+          <a href="index-en.html" class="active-lang">EN</a>
+          <a href="index-es.html">ES</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bar"></div>
+    <h1>SOUAN Victor</h1>
+    <p>First-year Undergraduate Student in Electrical Engineering &amp; Industrial Computing (BUT GEII) — IUT de Bordeaux (France)</p>
+  </section>
+
+  <div class="container">
+    <!-- ABOUT ME -->
+    <div class="card about-card reveal">
+      <img src="photo-victor.jpg" alt="Victor Souan profile photo" class="profile-photo">
+      <div>
+        <span class="badge badge-blue">Welcome to my portfolio</span>
+        <h2>About Me</h2>
+        <p>
+          Holding a French General Baccalaureate with honors (Mathematics &amp; Physics-Chemistry), I am currently studying <strong>Electrical Engineering and Industrial Computing (BUT GEII)</strong> at IUT de Bordeaux. Passionate about electronics, power systems, and hands-on engineering, I aim to specialize in <strong>Electrical Power &amp; Energy Management (EME)</strong> in my second year to pursue a career in energy project management.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <a href="sae-s1.html" class="btn-navy">View Full French Project Page →</a>
+          <a href="https://drive.google.com/file/d/1WzoYddrsvxdekkOzyr0ID587YM53Q3Lj/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline">📄 Download Resume (PDF) ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURED PROJECT IN ENGLISH -->
+    <div id="project-en" class="card project-highlight reveal">
+      <span class="badge badge-amber">Semester 1 Project • Team 43</span>
+      <h2 style="color: var(--navy); font-size: 22px; margin: 10px 0 12px;">Electronic Bath Thermometer (TDB-EQ43)</h2>
+      <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 14px;">
+        In a four-student engineering team, we designed, simulated, and routed a standalone electronic bath thermometer powered by a 2S LiPo battery (24-hour autonomy, BOM cost under €20).
+      </p>
+      <ul style="padding-left: 20px; color: var(--text-muted); font-size: 14.5px; margin-bottom: 18px;">
+        <li><strong>Power &amp; Sensing:</strong> 5 V voltage regulation (LM78L05) and linear temperature sensing using an <strong>LM35</strong> sensor (10 mV/°C) with precision threshold dividers (36.0 °C and 39.0 °C).</li>
+        <li><strong>Signal Processing:</strong> Dual operational amplifier comparators (<strong>MCP6002</strong>) combined with a NOR logic gate (<strong>74HC02</strong>) driving three status LEDs (Cold, Warm, Hot).</li>
+        <li><strong>CAD &amp; Validation:</strong> Circuit simulation in <strong>Proteus ISIS</strong>, 100 × 60 mm PCB layout in <strong>ARES</strong>, and custom vector casing design in <strong>Inkscape</strong>.</li>
+      </ul>
+      <a href="Schemafinal.pdf" target="_blank" rel="noopener noreferrer" class="btn-navy">📐 Open Schematic Diagram (PDF) ↗</a>
+    </div>
+  </div>
+
+  <!-- CORE SKILLS & BACKGROUND -->
+  <section id="skills-en" class="section-ice">
+    <div style="max-width: 1140px; margin: 0 auto;">
+      <h2 class="section-title reveal">BUT GEII Core Competencies</h2>
+      <div class="quick-grid">
+        <div class="card quick-card reveal">
+          <div>
+            <span class="badge badge-blue">Skill 01 • Design</span>
+            <h3>CONCEIVE (Concevoir)</h3>
+            <p style="margin-top: 8px;">Functional breakdown of specifications, component sizing, Proteus ISIS schematic capture, ARES PCB routing, and engineering documentation (DDC/DDF).</p>
+          </div>
+          <a href="comp-concevoir.html" class="btn-outline" style="width: 100%;">View Proofs →</a>
+        </div>
+
+        <div class="card quick-card reveal">
+          <div>
+            <span class="badge badge-amber">Skill 02 • Testing</span>
+            <h3>VERIFY (Vérifier)</h3>
+            <p style="margin-top: 8px;">Drafting test procedures, running ISIS electrical simulations across operating thresholds, oscilloscope measurements, and prototype debugging.</p>
+          </div>
+          <a href="comp-verifier.html" class="btn-outline" style="width: 100%;">View Proofs →</a>
+        </div>
+
+        <div class="card quick-card reveal">
+          <div>
+            <span class="badge badge-navy">Skill 03 • Project Management</span>
+            <h3>MANAGE (Manager)</h3>
+            <p style="margin-top: 8px;">Team coordination, bilingual technical reporting (French &amp; English), bill of materials budget control (&lt; €20), and eco-design choices.</p>
+          </div>
+          <a href="comp-manager.html" class="btn-outline" style="width: 100%;">View Proofs →</a>
+        </div>
+      </div>
+
+      <div id="background-en" class="card reveal" style="margin-top: 32px;">
+        <span class="badge badge-green">Education &amp; Field Experience</span>
+        <h3 style="color: var(--navy); font-size: 20px; margin: 10px 0;">Academic &amp; Practical Background</h3>
+        <p style="font-size: 14.5px; color: var(--text-muted);">
+          <strong>2026 – Present:</strong> First-year BUT GEII at IUT de Bordeaux (Gradignan) — aiming for the Energy &amp; Power Management (EME) track.<br>
+          <strong>Summers 2025 &amp; 2026:</strong> Seasonal agricultural machinery &amp; tractor driver during grape harvests in Gironde (autonomous logistics, safety compliance, preventive maintenance).<br>
+          <strong>Tools &amp; Software:</strong> Proteus ISIS/ARES, Inkscape, VS Code, HTML/CSS/JavaScript, GitHub, C/Arduino IDE, Oscilloscope &amp; Lab Instrumentation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-card">
+      <h3 style="font-size: 21px;">Victor Souan — BUT GEII Portfolio</h3>
+      <p style="font-size: 14.5px; color: #bae6fd;">IUT de Bordeaux • Gradignan Campus (France)</p>
+      <div class="footer-actions">
+        <a href="mailto:victor.souan@etu.u-bordeaux.fr" class="footer-btn btn-mail">✉️ victor.souan@etu.u-bordeaux.fr</a>
+        <button class="footer-btn btn-in" data-copy-email="victor.souan@etu.u-bordeaux.fr">📋 Copy Email</button>
+        <a href="https://www.linkedin.com/in/victor-souan/" target="_blank" rel="noopener noreferrer" class="footer-btn btn-in">LinkedIn ↗</a>
+      </div>
+      <p style="font-size: 13px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px;">© 2026 Victor Souan — All rights reserved</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" title="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

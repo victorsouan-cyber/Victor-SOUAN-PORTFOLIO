@@ -38,7 +38,6 @@
       border-color: var(--navy);
     }
 
-    /* GRILLE DES APERÇUS DE PROJETS */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -115,7 +114,8 @@
 
   <header>
     <a href="index.html" class="brand">
-      SOUAN Victor <span class="brand-badge">BUT GEII</span>
+      <img src="logoGEII_retina.png" alt="Logo GEII IUT de Bordeaux" class="brand-logo">
+      <span>SOUAN Victor</span>
     </a>
     <button class="menu-toggle" aria-label="Menu">☰</button>
     <nav>
@@ -131,13 +131,21 @@
         <li>
           <a href="competences.html">Compétences ▾</a>
           <ul class="dropdown-menu">
-            <li><a href="competences.html#concevoir">01. Concevoir</a></li>
-            <li><a href="competences.html#verifier">02. Vérifier</a></li>
-            <li><a href="competences.html#manager">03. Manager</a></li>
+            <li><a href="competences.html">Vue d'ensemble</a></li>
+            <li><a href="comp-concevoir.html">Concevoir (C.1 à C.4)</a></li>
+            <li><a href="comp-verifier.html">Vérifier (V.1 à V.2)</a></li>
+            <li><a href="comp-maintenir.html">Maintenir (M.1 à M.2)</a></li>
+            <li><a href="comp-installer.html">Installer — EME (I.2)</a></li>
+            <li><a href="comp-manager.html">Manager (G.1 à G.3)</a></li>
           </ul>
         </li>
         <li><a href="parcours.html">Parcours &amp; CV</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li class="lang-switch">
+          <a href="index.html" class="active-lang">FR</a>
+          <a href="index-en.html">EN</a>
+          <a href="index-es.html">ES</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -149,17 +157,13 @@
   </section>
 
   <div class="container">
-    <!-- FILTRES PAR DOMAINE -->
     <div class="filter-bar reveal">
       <button class="filter-btn active" data-filter="all">Tous les projets (2)</button>
       <button class="filter-btn" data-filter="electronique">Électronique &amp; PCB</button>
       <button class="filter-btn" data-filter="energie">Énergie &amp; Puissance</button>
     </div>
 
-    <!-- GRILLE DES APERÇUS -->
     <div class="projects-grid">
-
-      <!-- APERÇU 1 : SAÉ S1 THERMOMÈTRE DE BAIN -->
       <article class="card project-card project-item reveal" data-category="electronique">
         <div>
           <div class="project-banner" style="background-image: linear-gradient(rgba(15,23,42,0.2), rgba(15,23,42,0.4)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80');">
@@ -170,10 +174,10 @@
               <div class="project-tags">
                 <span class="badge badge-blue">Concevoir</span>
                 <span class="badge badge-blue">Vérifier</span>
-                <span class="badge badge-gray">Équipe de 4</span>
+                <span class="badge badge-gray">Équipe 43 (4 étudiants)</span>
               </div>
               <h2>SAÉ S1 — Thermomètre de bain électronique</h2>
-              <p>Conception complète d'un thermomètre autonome sur batterie LiPo 2S avec capteur LM35, amplification MCP6002, seuils d'alerte (36,0 °C et 39,0 °C) et routage PCB sous ARES.</p>
+              <p>Conception complète d'un thermomètre autonome sur batterie LiPo 2S avec capteur LM35, comparateurs MCP6002, logique 74HC02, seuils d'alerte (36,0 °C et 39,0 °C) et routage PCB sous ARES.</p>
             </div>
             <div>
               <div class="project-specs" style="margin-bottom: 16px;">
@@ -187,7 +191,6 @@
         </div>
       </article>
 
-      <!-- APERÇU 2 : SAÉ S2 KART À HÉLICE -->
       <article class="card project-card project-item reveal" data-category="energie electronique">
         <div>
           <div class="project-banner" style="background-image: linear-gradient(rgba(15,23,42,0.2), rgba(15,23,42,0.4)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80');">
@@ -212,7 +215,6 @@
           </div>
         </div>
       </article>
-
     </div>
   </div>
 
