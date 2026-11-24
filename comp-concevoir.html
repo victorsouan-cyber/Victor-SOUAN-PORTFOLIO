@@ -7,21 +7,413 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .hero-sub { min-height: 260px !important; padding: 65px 20px !important; }
+    .hero-sub {
+      min-height: 280px !important;
+      padding: 70px 20px !important;
+    }
+
     .breadcrumb {
-      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
-      color: var(--navy); font-weight: 600; font-size: 14.5px; margin-bottom: 24px;
-      padding: 8px 14px; background: var(--bg-ice); border-radius: 8px; transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 14.5px;
+      margin-bottom: 24px;
+      padding: 8px 14px;
+      background: var(--bg-ice);
+      border-radius: 8px;
+      transition: 0.2s;
     }
-    .breadcrumb:hover { background: var(--primary); color: #ffffff; }
-    .ac-detail-card { margin-bottom: 24px; border-left: 5px solid var(--primary); }
-    .ac-detail-card h2 { color: var(--navy); font-size: 19px; margin: 10px 0 12px; }
-    .proof-box {
-      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
-      padding: 16px 20px; margin-top: 12px;
+
+    .breadcrumb:hover {
+      background: var(--primary);
+      color: #ffffff;
     }
-    .proof-box h4 { font-size: 13.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
-    .proof-box p { font-size: 14.5px; color: var(--text-muted); }
+
+    /* ---------- Vue d'ensemble ---------- */
+    .overview {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 24px;
+      margin-bottom: 44px;
+      align-items: stretch;
+    }
+
+    .overview h2 {
+      color: var(--navy);
+      font-size: 22px;
+      margin: 10px 0 10px;
+    }
+
+    .overview p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+    }
+
+    .overview-steps {
+      display: grid;
+      gap: 10px;
+    }
+
+    .overview-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      text-decoration: none;
+      color: var(--navy);
+      transition: 0.2s;
+    }
+
+    .overview-step:hover {
+      border-color: var(--primary);
+      background: var(--bg-ice);
+    }
+
+    .overview-step b {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--navy));
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .overview-step span {
+      font-size: 13.5px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    /* ---------- Critères ---------- */
+    .crit {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 22px;
+      margin-bottom: 36px;
+    }
+
+    .crit-side {
+      text-align: center;
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+
+    .crit-code {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--navy));
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 auto 10px;
+      box-shadow: 0 10px 24px rgba(23, 37, 84, 0.25);
+    }
+
+    .crit-body {
+      padding: 26px 28px;
+    }
+
+    .crit-body h2 {
+      color: var(--navy);
+      font-size: 21px;
+      margin: 8px 0 6px;
+    }
+
+    .crit-def {
+      font-size: 13.5px;
+      font-style: italic;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    .crit-body p,
+    .crit-body li {
+      font-size: 14.5px;
+      color: var(--text-muted);
+    }
+
+    .crit-body ul {
+      padding-left: 18px;
+      margin-top: 8px;
+    }
+
+    .crit-body li {
+      margin-bottom: 7px;
+    }
+
+    .crit-body h3 {
+      color: var(--navy);
+      font-size: 15.5px;
+      margin: 20px 0 8px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid #eef2f7;
+    }
+
+    .chip {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--bg-ice);
+      color: var(--navy);
+      border: 1px solid #cfe9f7;
+    }
+
+    /* ---------- Blocs de preuves ---------- */
+    .blocks-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 14px 0 4px;
+    }
+
+    .block-tile {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid var(--primary);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .block-tile.mine {
+      border-top-color: #16a34a;
+      background: #f0fdf4;
+    }
+
+    .block-tile strong {
+      display: block;
+      color: var(--navy);
+      font-size: 14px;
+    }
+
+    .block-tile span {
+      display: block;
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 3px;
+    }
+
+    .legend {
+      font-size: 12.5px;
+      color: #64748b;
+      margin-top: 8px;
+    }
+
+    .decisions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .decision {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .decision h4 {
+      color: var(--navy);
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .decision p {
+      font-size: 13.5px;
+      margin: 0;
+    }
+
+    .truth {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin-top: 10px;
+    }
+
+    .truth th,
+    .truth td {
+      padding: 8px 10px;
+      text-align: center;
+      border-bottom: 1px solid #e2e8f0;
+      color: var(--text-muted);
+    }
+
+    .truth th {
+      background: #f8fafc;
+      color: var(--navy);
+    }
+
+    .truth tr.on td:last-child {
+      background: #dcfce7;
+      color: #166534;
+      font-weight: 700;
+    }
+
+    .truth-wrap {
+      max-width: 520px;
+      overflow-x: auto;
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .sim-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .sim-card img {
+      width: 100%;
+      height: 130px;
+      object-fit: contain;
+      background: #e5e5e0;
+      display: block;
+    }
+
+    .sim-card div {
+      padding: 10px 12px;
+      border-top: 3px solid var(--primary);
+    }
+
+    .sim-card.warm div { border-top-color: #f59e0b; }
+    .sim-card.ok div { border-top-color: #16a34a; }
+
+    .sim-card strong {
+      display: block;
+      font-size: 13.5px;
+      color: var(--navy);
+    }
+
+    .sim-card span {
+      font-size: 12.5px;
+      color: #64748b;
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .tile {
+      background: var(--bg-ice);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .tile strong {
+      display: block;
+      font-size: 22px;
+      color: var(--navy);
+    }
+
+    .tile span {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .doc-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .doc-card h4 {
+      color: var(--navy);
+      font-size: 15.5px;
+      margin: 8px 0 6px;
+    }
+
+    .doc-card p {
+      font-size: 13.5px;
+      margin: 0 0 6px;
+    }
+
+    .pcb-figure {
+      margin-top: 14px;
+    }
+
+    .pcb-figure img {
+      width: 100%;
+      max-height: 260px;
+      object-fit: contain;
+      background: #0f172a;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+    }
+
+    .pcb-figure figcaption {
+      font-size: 12.5px;
+      color: #64748b;
+      margin-top: 6px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .pager {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 10px 0 48px;
+    }
+
+    @media (max-width: 900px) {
+      .overview,
+      .decisions,
+      .docs-grid { grid-template-columns: 1fr; }
+      .blocks-grid { grid-template-columns: repeat(2, 1fr); }
+      .sim-grid, .tiles { grid-template-columns: 1fr; }
+      .crit { grid-template-columns: 1fr; }
+      .crit-side { position: static; display: flex; align-items: center; gap: 14px; text-align: left; }
+      .crit-code { margin: 0; width: 64px; height: 64px; font-size: 19px; flex: 0 0 auto; }
+    }
   </style>
 </head>
 <body>
@@ -73,41 +465,220 @@
   <div class="container">
     <a href="competences.html" class="breadcrumb">← Retour au référentiel de compétences</a>
 
-    <div class="card ac-detail-card reveal">
-      <span class="badge badge-navy">Critère C.1</span>
-      <h2>C.1 : J'identifie les fonctions demandées à la lecture du cahier des charges (architecture fonctionnelle - sans solution technique)</h2>
-      <div class="proof-box">
-        <h4>Preuve S1 — SAÉ Thermomètre de bain (TDB-EQ43)</h4>
-        <p>Analyse du cahier des charges (seuils d'alerte à 36,0 °C et 39,0 °C, autonomie de 24 h, budget &lt; 20 €) et découpage du système en 4 blocs fonctionnels indépendants : <strong>Énergie</strong>, <strong>Acquisition</strong>, <strong>Traitement</strong> et <strong>Action</strong>.</p>
-        <div style="margin-top: 10px;"><a href="sae-s1.html" class="badge badge-blue" style="text-decoration: none;">Voir la SAÉ S1 ↗</a></div>
+    <!-- VUE D'ENSEMBLE -->
+    <div class="overview">
+      <div class="card reveal">
+        <span class="badge badge-blue">Preuves issues de la SAÉ S1</span>
+        <h2>De l'exigence client à la carte électronique</h2>
+        <p>
+          Toutes les preuves de cette page viennent du projet <strong>Thermomètre de bain (TDB-EQ43)</strong> : le dossier de conception
+          (<strong>DDC</strong>, rév. 3 du 24/11/2026) et le dossier de fabrication (<strong>DDF</strong>, rév. 2).
+          Dans l'équipe, mes blocs sont le <strong>Traitement</strong> et l'<strong>Action</strong> (avec l'équipier 3) : j'y suis rédacteur
+          des paragraphes de conception. Je suis relecteur de tous les autres.
+        </p>
+      </div>
+      <div class="card reveal">
+        <div class="overview-steps">
+          <a class="overview-step" href="#c1"><b>C.1</b><span>Identifier les fonctions du cahier des charges</span></a>
+          <a class="overview-step" href="#c2"><b>C.2</b><span>Proposer une solution technique</span></a>
+          <a class="overview-step" href="#c3"><b>C.3</b><span>Affiner par maquettage numérique</span></a>
+          <a class="overview-step" href="#c4"><b>C.4</b><span>Rédiger le dossier de conception et de fabrication</span></a>
+        </div>
       </div>
     </div>
 
-    <div class="card ac-detail-card reveal">
-      <span class="badge badge-navy">Critère C.2</span>
-      <h2>C.2 : Je propose une solution technique pour répondre à une fonction</h2>
-      <div class="proof-box">
-        <h4>Preuve S1 — Choix des composants (TDB-EQ43)</h4>
-        <p>Sélection et dimensionnement des composants : capteur analogique linéaire <strong>LM35</strong> (10 mV/°C), pont diviseur de seuils (<code>R1–R5</code>), double comparateur <strong>MCP6002</strong>, porte logique NOR <strong>74HC02</strong>, régulateur <strong>LM78L05ACZ</strong> sur batterie LiPo 2S et signalisation par 3 LEDs (Bleue, Verte, Rouge).</p>
+    <!-- C.1 -->
+    <section class="crit reveal" id="c1">
+      <div class="crit-side">
+        <div class="crit-code">C.1</div>
+        <span class="badge badge-green">Démontré</span>
       </div>
-    </div>
+      <div class="card crit-body">
+        <span class="badge badge-blue">Critère C.1</span>
+        <h2>J'identifie les fonctions demandées à la lecture du cahier des charges</h2>
+        <p class="crit-def">Architecture fonctionnelle, sans solution technique.</p>
 
-    <div class="card ac-detail-card reveal">
-      <span class="badge badge-navy">Critère C.3</span>
-      <h2>C.3 : J'affine une solution technique en m'appuyant sur un maquettage numérique et/ou matériel</h2>
-      <div class="proof-box">
-        <h4>Preuve S1 — Simulations sous Proteus ISIS</h4>
-        <p>Modélisation complète sous <strong>Proteus ISIS</strong> et validation des trois cas de fonctionnement (eau froide à 0,20 V, eau tiède à 0,38 V et eau chaude à 0,57 V) avant le lancement du routage PCB.</p>
-      </div>
-    </div>
+        <p>
+          Le cahier des charges de Baby Corporation fixe <strong>10 exigences</strong> (architecture, mesure, seuils, comparaisons, allumages,
+          intensités, autonomie, marche/arrêt, dimensions, coût). Elles sont rattachées aux 4 blocs fonctionnels du synoptique du DDC.
+        </p>
 
-    <div class="card ac-detail-card reveal">
-      <span class="badge badge-navy">Critère C.4</span>
-      <h2>C.4 : Je rédige un dossier de conception et de fabrication</h2>
-      <div class="proof-box">
-        <h4>Preuve S1 — Dossiers DDC / DDF &amp; Routage ARES</h4>
-        <p>Rédaction du <strong>Dossier de Conception (DDC)</strong> et du <strong>Dossier de Définition (DDF)</strong> : placement et routage du circuit imprimé (100 × 60 mm) sous <strong>ARES</strong>, fichiers Gerber, nomenclature et dessin vectoriel sous <strong>Inkscape</strong> pour la gravure laser du boîtier.</p>
+        <div class="blocks-grid">
+          <div class="block-tile"><strong>Énergie</strong><span>autonomie, marche/arrêt</span></div>
+          <div class="block-tile"><strong>Acquisition</strong><span>mesure, seuils</span></div>
+          <div class="block-tile mine"><strong>Traitement</strong><span>comparaisons</span></div>
+          <div class="block-tile mine"><strong>Action</strong><span>allumages, intensités</span></div>
+        </div>
+        <p class="legend">En vert : les deux blocs dont je suis responsable avec l'équipier 3.</p>
+
+        <h3>Ma part</h3>
+        <ul>
+          <li><strong>Traitement :</strong> distinguer l'eau froide (moins de 36 °C), tiède (entre 36 °C et 39 °C) et chaude (plus de 39 °C).</li>
+          <li><strong>Action :</strong> un voyant par état (bleu, vert, rouge), avec une intensité lumineuse de 50 mcd à ±10 %.</li>
+          <li><strong>Relecture</strong> du paragraphe d'architecture du DDC rédigé par Enzo et Louis.</li>
+        </ul>
+
+        <div class="chips">
+          <span class="chip">DDC · CPR_ARCHITECTURE</span>
+          <span class="chip">Code référentiel C1a-3</span>
+          <span class="chip">EXIG_COMPARAISONS</span>
+          <span class="chip">EXIG_ALLUMAGES</span>
+          <span class="chip">EXIG_INTENSITES</span>
+        </div>
       </div>
+    </section>
+
+    <!-- C.2 -->
+    <section class="crit reveal" id="c2">
+      <div class="crit-side">
+        <div class="crit-code">C.2</div>
+        <span class="badge badge-green">Démontré</span>
+      </div>
+      <div class="card crit-body">
+        <span class="badge badge-blue">Critère C.2</span>
+        <h2>Je propose une solution technique pour répondre à une fonction</h2>
+        <p class="crit-def">Choix justifiés de montages et de composants.</p>
+
+        <div class="decisions">
+          <div class="decision">
+            <h4>Deux comparateurs dans un seul boîtier</h4>
+            <p>Double AOP <strong>MCP6002</strong> : aucune exigence de vitesse particulière, un AOP coûte moins cher qu'un comparateur dédié et prend moins de place.</p>
+          </div>
+          <div class="decision">
+            <h4>Eau tiède = ni froide, ni chaude</h4>
+            <p>Une porte <strong>NOR (74HC02)</strong> donne directement l'état « tiède » et évite d'ajouter un inverseur.</p>
+          </div>
+          <div class="decision">
+            <h4>LED en logique positive</h4>
+            <p>Le signal à l'état haut allume la LED directement. Une logique négative aurait demandé des inverseurs : plus de coût et de place sur une carte de dimensions imposées.</p>
+          </div>
+          <div class="decision">
+            <h4>Trois LED qui respectent les 50 mcd</h4>
+            <p>Intensité minimale à 20 mA : 63 mcd (rouge TLDR4900), 240 mcd (verte HLMP-Y801-JPP00) et 1 500 mcd (bleue MP000436). Toutes dépassent l'exigence.</p>
+          </div>
+        </div>
+
+        <h3>Table de vérité de l'état « tiède »</h3>
+        <div class="truth-wrap">
+          <table class="truth">
+            <thead><tr><th>C (eau chaude)</th><th>F (eau froide)</th><th>T = NOR(C, F)</th></tr></thead>
+            <tbody>
+              <tr class="on"><td>0</td><td>0</td><td>1 (tiède)</td></tr>
+              <tr><td>0</td><td>1</td><td>0 (froide)</td></tr>
+              <tr><td>1</td><td>0</td><td>0 (chaude)</td></tr>
+              <tr><td>1</td><td>1</td><td>0 (cas impossible)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="chips">
+          <span class="chip">DDC · CPR_COMPARAISONS</span>
+          <span class="chip">DDC · CPR_ALLUMAGES</span>
+          <span class="chip">DDC · CPR_INTENSITES</span>
+          <span class="chip">Codes C1a-9, C1a-10</span>
+          <span class="chip">Rédacteur avec Dylan</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- C.3 -->
+    <section class="crit reveal" id="c3">
+      <div class="crit-side">
+        <div class="crit-code">C.3</div>
+        <span class="badge badge-green">Démontré</span>
+      </div>
+      <div class="card crit-body">
+        <span class="badge badge-blue">Critère C.3</span>
+        <h2>J'affine une solution technique par maquettage numérique</h2>
+        <p class="crit-def">Simulations sous Proteus ISIS avant la fabrication.</p>
+
+        <h3>Le traitement fonctionne dans les trois états</h3>
+        <p>La tension du LM35 (10 mV/°C) est comparée aux seuils. À chaque température testée, <strong>une seule sortie</strong> passe à 5 V.</p>
+        <div class="sim-grid">
+          <div class="sim-card">
+            <img src="simu-froide.png" alt="Simulation ISIS eau froide">
+            <div><strong>Eau froide</strong><span>20 °C, soit 0,20 V : sortie EAU FROIDE à 5 V</span></div>
+          </div>
+          <div class="sim-card ok">
+            <img src="simu-tiede.png" alt="Simulation ISIS eau tiède">
+            <div><strong>Eau tiède</strong><span>38 °C, soit 0,38 V : sortie EAU TIÈDE à 5 V</span></div>
+          </div>
+          <div class="sim-card warm">
+            <img src="simu-chaude.png" alt="Simulation ISIS eau chaude">
+            <div><strong>Eau chaude</strong><span>50 °C, soit 0,50 V : sortie EAU CHAUDE à 5 V</span></div>
+          </div>
+        </div>
+
+        <h3>Mes résistances de LED sont vérifiées</h3>
+        <p>
+          Courant visé pour 50 mcd (3,23 mA verte, 5 mA rouge, 0,5 mA bleue), puis R = (4,975 − Vf) / If, arrondie à la série E24
+          (910 Ω, 680 Ω, 4,7 kΩ). Le courant simulé est comparé à la valeur théorique :
+        </p>
+        <div class="tiles">
+          <div class="tile"><strong>+3,41 %</strong><span>LED verte : 3,34 mA simulés</span></div>
+          <div class="tile"><strong>−3,6 %</strong><span>LED rouge : 4,82 mA simulés</span></div>
+          <div class="tile"><strong>+1 %</strong><span>LED bleue : 505 µA simulés</span></div>
+        </div>
+
+        <div class="chips">
+          <span class="chip">DDC · CDT_COMPARAISONS</span>
+          <span class="chip">DDC · CDT_INTENSITES</span>
+          <span class="chip">Codes C1b-22, C1b-24, C1b-25, C1b-26</span>
+          <span class="chip">Rédacteur avec Dylan</span>
+        </div>
+        <div class="actions">
+          <a href="sae-s1.html" class="btn-navy">Voir la SAÉ S1 en détail ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- C.4 -->
+    <section class="crit reveal" id="c4">
+      <div class="crit-side">
+        <div class="crit-code">C.4</div>
+        <span class="badge badge-green">Démontré</span>
+      </div>
+      <div class="card crit-body">
+        <span class="badge badge-blue">Critère C.4</span>
+        <h2>Je rédige un dossier de conception et de fabrication</h2>
+        <p class="crit-def">Dossiers livrés le 24/11/2026, avec relecture croisée dans l'équipe.</p>
+
+        <div class="docs-grid">
+          <div class="doc-card">
+            <span class="badge badge-blue">DDC • rév. 3</span>
+            <h4>Dossier de Conception</h4>
+            <p>Rédacteur de 6 paragraphes : comparaisons, allumages et intensités, en conception préliminaire puis détaillée.</p>
+            <p>Relecteur des autres paragraphes (mesure, seuils, autonomie, dimensions, coût...).</p>
+            <p>Matrice de conformité : les 10 exigences sont conformes à l'issue de la conception.</p>
+          </div>
+          <div class="doc-card">
+            <span class="badge badge-green">DDF • rév. 2</span>
+            <h4>Dossier de Fabrication</h4>
+            <p>Schéma électrique, nomenclature, typons à l'échelle 1, plan de perçage, schéma d'implantation et processus de fabrication.</p>
+            <p>Relecteur de l'ensemble du dossier.</p>
+          </div>
+        </div>
+
+        <figure class="pcb-figure">
+          <img src="pcb-ares.png" alt="Placement des composants sur le PCB sous ARES">
+          <figcaption>Placement des composants sur la carte de 100 × 60 mm sous ARES : entrées d'énergie à gauche, LED sur le bord droit pour une visibilité maximale.</figcaption>
+        </figure>
+
+        <div class="chips">
+          <span class="chip">DDC rév. 3</span>
+          <span class="chip">DDF rév. 2</span>
+          <span class="chip">Codes C1c-34, C1c-35, C1c-36</span>
+          <span class="chip">Coût estimé : 7,01 € TTC</span>
+        </div>
+        <div class="actions">
+          <a href="Schemafinal.pdf" target="_blank" rel="noopener noreferrer" class="btn-navy">📐 Ouvrir le schéma structurel (PDF) ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="pager">
+      <a href="competences.html" class="breadcrumb">← Référentiel</a>
+      <a href="comp-verifier.html" class="breadcrumb">Compétence suivante : Vérifier →</a>
     </div>
   </div>
 

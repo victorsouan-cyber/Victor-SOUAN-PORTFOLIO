@@ -7,21 +7,305 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .hero-sub { min-height: 260px !important; padding: 65px 20px !important; }
+    .hero-sub {
+      min-height: 280px !important;
+      padding: 70px 20px !important;
+    }
+
     .breadcrumb {
-      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
-      color: var(--navy); font-weight: 600; font-size: 14.5px; margin-bottom: 24px;
-      padding: 8px 14px; background: var(--bg-ice); border-radius: 8px; transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 14.5px;
+      margin-bottom: 24px;
+      padding: 8px 14px;
+      background: var(--bg-ice);
+      border-radius: 8px;
+      transition: 0.2s;
     }
-    .breadcrumb:hover { background: var(--primary); color: #ffffff; }
-    .ac-detail-card { margin-bottom: 24px; border-left: 5px solid #f59e0b; }
-    .ac-detail-card h2 { color: var(--navy); font-size: 19px; margin: 10px 0 12px; }
-    .proof-box {
-      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
-      padding: 16px 20px; margin-top: 12px;
+
+    .breadcrumb:hover {
+      background: var(--primary);
+      color: #ffffff;
     }
-    .proof-box h4 { font-size: 13.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
-    .proof-box p { font-size: 14.5px; color: var(--text-muted); }
+
+    /* ---------- Vue d'ensemble ---------- */
+    .overview {
+      margin-bottom: 44px;
+    }
+
+    .overview h2 {
+      color: var(--navy);
+      font-size: 22px;
+      margin: 10px 0 10px;
+    }
+
+    .overview p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+    }
+
+    .progress {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+      position: relative;
+    }
+
+    .progress-step {
+      text-align: center;
+      padding: 14px 8px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-top: 4px solid #cbd5e1;
+    }
+
+    .progress-step.done { border-top-color: #22c55e; background: #f0fdf4; }
+    .progress-step.next { border-top-color: #f59e0b; background: #fffbeb; }
+
+    .progress-step strong {
+      display: block;
+      font-size: 13.5px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .progress-step span {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    /* ---------- Critères ---------- */
+    .crit {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 22px;
+      margin-bottom: 36px;
+    }
+
+    .crit-side {
+      text-align: center;
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+
+    .crit-code {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--navy));
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 auto 10px;
+      box-shadow: 0 10px 24px rgba(23, 37, 84, 0.25);
+    }
+
+    .crit-body {
+      padding: 26px 28px;
+    }
+
+    .crit-body h2 {
+      color: var(--navy);
+      font-size: 21px;
+      margin: 8px 0 6px;
+    }
+
+    .crit-def {
+      font-size: 13.5px;
+      font-style: italic;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    .crit-body p,
+    .crit-body li {
+      font-size: 14.5px;
+      color: var(--text-muted);
+    }
+
+    .crit-body ul {
+      padding-left: 18px;
+      margin-top: 8px;
+    }
+
+    .crit-body li {
+      margin-bottom: 7px;
+    }
+
+    .crit-body h3 {
+      color: var(--navy);
+      font-size: 15.5px;
+      margin: 22px 0 8px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid #eef2f7;
+    }
+
+    .chip {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--bg-ice);
+      color: var(--navy);
+      border: 1px solid #cfe9f7;
+    }
+
+    /* ---------- Flux d'un essai ---------- */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .flow-step {
+      text-align: center;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--navy);
+      position: relative;
+    }
+
+    .flow-step em {
+      display: block;
+      font-style: normal;
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .flow-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* ---------- Tableaux ---------- */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+
+    .test-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    .test-table th,
+    .test-table td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      color: var(--text-muted);
+      vertical-align: top;
+    }
+
+    .test-table th {
+      background: #f8fafc;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .test-table td:first-child {
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .tile {
+      background: var(--bg-ice);
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+      border-bottom: 3px solid #22c55e;
+    }
+
+    .tile strong {
+      display: block;
+      font-size: 21px;
+      color: var(--navy);
+    }
+
+    .tile span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .tile em {
+      display: inline-block;
+      margin-top: 6px;
+      font-style: normal;
+      font-size: 11px;
+      font-weight: 700;
+      color: #166534;
+      background: #dcfce7;
+      border-radius: 999px;
+      padding: 2px 8px;
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      font-size: 13.5px;
+      color: #78350f;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .pager {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 10px 0 48px;
+    }
+
+    @media (max-width: 900px) {
+      .progress { grid-template-columns: 1fr 1fr; }
+      .flow, .flow-4 { grid-template-columns: repeat(2, 1fr); }
+      .tiles { grid-template-columns: repeat(2, 1fr); }
+      .crit { grid-template-columns: 1fr; }
+      .crit-side { position: static; display: flex; align-items: center; gap: 14px; text-align: left; }
+      .crit-code { margin: 0; width: 64px; height: 64px; font-size: 19px; flex: 0 0 auto; }
+    }
   </style>
 </head>
 <body>
@@ -73,24 +357,159 @@
   <div class="container">
     <a href="competences.html" class="breadcrumb">← Retour au référentiel de compétences</a>
 
-    <div class="card ac-detail-card reveal">
-      <span class="badge badge-amber">Critère V.1</span>
-      <h2>V.1 : J'applique, j'élabore, je rédige une procédure d'essais</h2>
-      <div class="proof-box">
-        <h4>Preuves S1 — Travaux Pratiques &amp; SAÉ Thermomètre de bain (TDB-EQ43)</h4>
-        <p>• Application rigoureuse des protocoles de mesure en laboratoire d'électronique (utilisation de l'oscilloscope numérique, du générateur basses fréquences GBF et du multimètre de précision).<br>
-           • Élaboration des procédures de tests pour la <strong>SAÉ S1</strong> (vérification de la linéarité du capteur LM35, mesure des tensions de basculement aux seuils 36,0 °C et 39,0 °C, et rédaction du Dossier de Validation DDV).</p>
-        <div style="margin-top: 10px;"><a href="sae-s1.html" class="badge badge-blue" style="text-decoration: none;">Voir les simulations ISIS (SAÉ S1) ↗</a></div>
+    <!-- VUE D'ENSEMBLE -->
+    <div class="card overview reveal">
+      <span class="badge badge-amber">Compétence en cours d'acquisition</span>
+      <h2>Prouver que le produit est conforme au cahier des charges</h2>
+      <p>
+        Sur la SAÉ Thermomètre de bain, la vérification se déroule en deux temps : d'abord par <strong>simulation</strong> (déjà faite et
+        consignée dans le DDC), puis sur le <strong>prototype fabriqué</strong> (essais et DDV prévus aux séances 16 à 20).
+        Cette page distingue donc ce qui est démontré de ce qui est planifié, et sera complétée avec les résultats des essais.
+      </p>
+
+      <div class="progress">
+        <div class="progress-step done"><strong>Simulations</strong><span>Terminé</span></div>
+        <div class="progress-step done"><strong>Conception</strong><span>DDC et DDF livrés</span></div>
+        <div class="progress-step next"><strong>Fabrication</strong><span>Prochaine étape</span></div>
+        <div class="progress-step"><strong>Essais (DDV)</strong><span>Séances 16 à 20</span></div>
+        <div class="progress-step"><strong>Débogage</strong><span>Après fabrication</span></div>
       </div>
     </div>
 
-    <div class="card ac-detail-card reveal">
-      <span class="badge badge-amber">Critère V.2</span>
-      <h2>V.2 : J'identifie, je corrige les non-conformités d'un prototype</h2>
-      <div class="proof-box">
-        <h4>Preuve S1 — Diagnostic &amp; Mise au point</h4>
-        <p>Analyse des écarts entre les résultats théoriques obtenus en simulation sous Proteus ISIS et les relevés expérimentaux sur maquette : ajustement des valeurs de résistances de seuil, vérification des continuités et correction des défauts de routage avant la fabrication finale.</p>
+    <!-- V.1 -->
+    <section class="crit reveal" id="v1">
+      <div class="crit-side">
+        <div class="crit-code">V.1</div>
+        <span class="badge badge-amber">En cours</span>
       </div>
+      <div class="card crit-body">
+        <span class="badge badge-blue">Critère V.1</span>
+        <h2>J'applique, j'élabore, je rédige une procédure d'essais</h2>
+        <p class="crit-def">Protocole, matériel, résultat attendu, résultat obtenu, statut.</p>
+
+        <h3>Déjà fait : appliquer des protocoles de mesure en TP</h3>
+        <p>
+          En travaux pratiques d'électronique, j'utilise le générateur basses fréquences, l'oscilloscope numérique et le multimètre en suivant
+          les protocoles des cahiers de TP.
+        </p>
+
+        <h3>Format de chaque essai du DDV</h3>
+        <div class="flow">
+          <div class="flow-step"><em>1</em>But</div>
+          <div class="flow-step"><em>2</em>Protocole et plan de câblage</div>
+          <div class="flow-step"><em>3</em>Matériel utilisé</div>
+          <div class="flow-step"><em>4</em>Résultat attendu</div>
+          <div class="flow-step"><em>5</em>Résultat obtenu</div>
+          <div class="flow-step"><em>6</em>Statut conforme ou non</div>
+        </div>
+
+        <h3>Mes essais : blocs Acquisition et Énergie</h3>
+        <p>Dans la répartition de l'équipe, je vérifie ces deux blocs (équipiers 3 et 4). Les valeurs attendues viennent du DDC.</p>
+        <div class="table-wrap">
+          <table class="test-table">
+            <thead>
+              <tr><th>Bloc</th><th>Ce que je vérifie</th><th>Valeur attendue</th><th>Statut</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Acquisition</td>
+                <td>Tension de sortie du capteur LM35</td>
+                <td>10 mV par °C (0,38 V à 38 °C)</td>
+                <td><span class="badge badge-gray">À venir</span></td>
+              </tr>
+              <tr>
+                <td>Acquisition</td>
+                <td>Tensions de seuil du pont diviseur</td>
+                <td>0,36 V et 0,39 V à ±5 % (353 mV et 383 mV obtenus en simulation)</td>
+                <td><span class="badge badge-gray">À venir</span></td>
+              </tr>
+              <tr>
+                <td>Énergie</td>
+                <td>Tension VCC après le régulateur LM78L05</td>
+                <td>Environ 5 V sur la plage de la batterie LiPo 2S (6,0 V à 8,4 V)</td>
+                <td><span class="badge badge-gray">À venir</span></td>
+              </tr>
+              <tr>
+                <td>Énergie</td>
+                <td>Autonomie sur accumulateur 350 mAh</td>
+                <td>Au moins 24 h (capacité minimale estimée à 324,52 mAh)</td>
+                <td><span class="badge badge-gray">À venir</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="chips">
+          <span class="chip">SAÉ S1 · DDV</span>
+          <span class="chip">Séances 16 à 20</span>
+          <span class="chip">Blocs Acquisition et Énergie</span>
+        </div>
+        <div class="actions">
+          <a href="sae-s1.html" class="btn-navy">Voir la SAÉ S1 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- V.2 -->
+    <section class="crit reveal" id="v2">
+      <div class="crit-side">
+        <div class="crit-code">V.2</div>
+        <span class="badge badge-amber">En cours</span>
+      </div>
+      <div class="card crit-body">
+        <span class="badge badge-blue">Critère V.2</span>
+        <h2>J'identifie, je corrige les non-conformités d'un prototype</h2>
+        <p class="crit-def">Comparer, statuer, corriger, vérifier à nouveau.</p>
+
+        <h3>Ma démarche</h3>
+        <div class="flow flow-4">
+          <div class="flow-step"><em>1</em>Comparer l'attendu et l'obtenu</div>
+          <div class="flow-step"><em>2</em>Calculer l'écart relatif</div>
+          <div class="flow-step"><em>3</em>Statuer face à la tolérance</div>
+          <div class="flow-step"><em>4</em>Corriger et revérifier</div>
+        </div>
+
+        <h3>Déjà appliquée en simulation (DDC)</h3>
+        <p>Chaque valeur simulée est comparée à la valeur théorique, puis jugée par rapport à la tolérance du cahier des charges.</p>
+        <div class="tiles">
+          <div class="tile"><strong>−1,94 %</strong><span>Seuil 36 °C : 353 mV</span><em>±5 % : conforme</em></div>
+          <div class="tile"><strong>−1,79 %</strong><span>Seuil 39 °C : 383 mV</span><em>±5 % : conforme</em></div>
+          <div class="tile"><strong>+3,41 %</strong><span>LED verte : 3,34 mA</span><em>±10 % : conforme</em></div>
+          <div class="tile"><strong>−3,6 %</strong><span>LED rouge : 4,82 mA</span><em>±10 % : conforme</em></div>
+          <div class="tile"><strong>+1 %</strong><span>LED bleue : 505 µA</span><em>±10 % : conforme</em></div>
+        </div>
+
+        <h3>Un ajustement vérifié</h3>
+        <p>
+          La résistance calculée pour la LED verte (942,7 Ω) n'existe pas en série E24 : j'ai retenu 910 Ω, puis simulé le montage pour vérifier
+          que le courant restait dans la tolérance. Même démarche pour la LED rouge (655 Ω devenus 680 Ω) et la LED bleue (4 820 Ω devenus 4 700 Ω).
+        </p>
+
+        <h3>Un dossier corrigé après revue</h3>
+        <p>
+          Le DDC est passé de la rév. 2 (20/10/2026) à la rév. 3 (24/11/2026). Dans mes paragraphes figurent désormais la table de vérité de la porte NOR,
+          la justification de la logique positive des LED et l'intensité minimale de chaque LED relevée dans les datasheets.
+        </p>
+
+        <h3>À venir : le prototype</h3>
+        <p>
+          Après la fabrication, le débogage consiste à mesurer la tension à la sortie de chaque bloc, dans l'ordre : énergie, acquisition, traitement, action.
+          En cas de non-conformité, j'expliquerai le problème rencontré et je proposerai une solution dans le DDV.
+        </p>
+        <div class="note">Cette section sera complétée avec les mesures réelles et les éventuelles corrections dès que le prototype sera testé.</div>
+
+        <div class="chips">
+          <span class="chip">DDC · CDT_COMPARAISONS</span>
+          <span class="chip">DDC · CDT_INTENSITES</span>
+          <span class="chip">DDC · Conclusion de la conception</span>
+          <span class="chip">Codes C1b-24, C1b-25, C1b-26</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="pager">
+      <a href="comp-concevoir.html" class="breadcrumb">← Concevoir</a>
+      <a href="comp-maintenir.html" class="breadcrumb">Compétence suivante : Maintenir →</a>
     </div>
   </div>
 

@@ -102,6 +102,47 @@
       border-color: var(--primary);
     }
 
+    .contribution-card {
+      margin-bottom: 48px;
+      border-left: 6px solid var(--primary);
+    }
+
+    .contribution-card h2 {
+      color: var(--navy);
+      font-size: 23px;
+      margin: 12px 0 10px;
+    }
+
+    .contribution-card p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+    }
+
+    .contribution-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .contribution-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .contribution-item h4 {
+      color: var(--navy);
+      font-size: 15.5px;
+      margin: 8px 0 6px;
+    }
+
+    .contribution-item p {
+      font-size: 13.5px;
+      margin: 0;
+    }
+
     .triptyque-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -214,8 +255,30 @@
       font-size: 12.5px;
     }
 
+    .table-wrap { overflow-x: auto; margin-top: 10px; }
+
+    .calc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    .calc-table th,
+    .calc-table td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid #e2e8f0;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .calc-table th {
+      color: var(--navy);
+      background: #f8fafc;
+    }
+
     @media (max-width: 900px) {
-      .specs-grid, .proofs-grid { grid-template-columns: 1fr; }
+      .specs-grid, .proofs-grid, .contribution-grid { grid-template-columns: 1fr; }
       .project-two-cols, .triptyque-grid, .timeline-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -272,7 +335,7 @@
     <div class="specs-grid reveal">
       <div class="spec-box">
         <span>Référence Projet</span>
-        <strong>TDB-EQ43 (Équipe 4)</strong>
+        <strong>TDB-EQ43 (Équipe 43)</strong>
       </div>
       <div class="spec-box">
         <span>Alimentation &amp; Régulation</span>
@@ -284,7 +347,7 @@
       </div>
       <div class="spec-box">
         <span>Dimensions PCB &amp; Budget</span>
-        <strong>100 × 60 mm • &lt; 20 €</strong>
+        <strong>100 × 60 mm • 7,01 € TTC</strong>
       </div>
     </div>
 
@@ -298,10 +361,10 @@
 
         <h3 style="color: var(--navy); font-size: 16.5px; margin-top: 16px;">Les 4 fonctions techniques (Schéma structurel) :</h3>
         <ul class="tech-list">
-          <li><strong>1. Énergie :</strong> Alimentation par batterie LiPo 2S raccordée sur bornier <code>J1</code>, interrupteur à glissière <code>SW1</code> (JS202011) et régulateur linéaire 5 V <strong>LM78L05ACZ</strong> (<code>U6</code>) fournissant la tension stable <code>VCC</code>.</li>
-          <li><strong>2. Acquisition :</strong> Capteur de température analogique linéaire <strong>LM35</strong> (<code>U3</code>, sensibilité 10 mV/°C) associé à un pont diviseur résistif (<code>R1</code> à <code>R5</code>) générant deux tensions de référence précises : <code>SEUIL_36°C</code> (0,36 V) et <code>SEUIL_39°C</code> (0,39 V).</li>
+          <li><strong>1. Énergie :</strong> Accumulateur LiPo 2S (7,4 V, 350 mAh, pour une capacité minimale estimée à 324,52 mAh avec 20 % de marge) raccordé sur bornier <code>J1</code>, interrupteur à glissière <code>SW1</code> (JS202011CQN) et régulateur linéaire 5 V <strong>LM78L05ACZ</strong> fournissant la tension stable <code>VCC</code>, car les composants n'acceptent que 2 à 6 V alors que la LiPo 2S varie de 6,0 V à 8,4 V.</li>
+          <li><strong>2. Acquisition :</strong> Capteur de température analogique linéaire <strong>LM35</strong> (<code>U3</code>, sensibilité 10 mV/°C) associé à un pont diviseur résistif (<code>R1</code> à <code>R5</code>) générant deux tensions de référence : <code>SEUIL_36°C</code> (0,36 V visés, 353 mV simulés, soit −1,94 %) et <code>SEUIL_39°C</code> (0,39 V visés, 383 mV simulés, soit −1,79 %), dans la tolérance de ±5 %.</li>
           <li><strong>3. Traitement (Comparaison &amp; Logique) :</strong> Double amplificateur opérationnel <strong>MCP6002</strong> monté en comparateur (<code>AOP:A</code> détecte <code>EAU CHAUDE &gt; 39 °C</code> ; <code>AOP:B</code> détecte <code>EAU FROIDE &lt; 36 °C</code>), suivi d'une porte logique <strong>NOR 74HC02</strong> (<code>PORTE:A</code>) qui active le signal <code>EAU TIEDE</code> lorsque l'eau est comprise entre 36 °C et 39 °C.</li>
-          <li><strong>4. Action (Signalisation visuelle) :</strong> Pilotage de trois LEDs haute visibilité avec leurs résistances de limitation : LED bleue (<code>LED_B</code> + 4,3 kΩ) pour l'eau froide, LED verte (<code>LED_V</code> + 910 Ω) pour l'eau tiède, et LED rouge (<code>LED_R</code> + 649 Ω) pour l'eau chaude.</li>
+          <li><strong>4. Action (Signalisation visuelle) :</strong> Pilotage de trois LEDs haute visibilité avec leurs résistances de limitation : LED bleue (<code>LED_B</code> + 4,7 kΩ) pour l'eau froide, LED verte (<code>LED_V</code> + 910 Ω) pour l'eau tiède, et LED rouge (<code>LED_R</code> + 680 Ω) pour l'eau chaude, en logique positive.</li>
         </ul>
 
         <div style="margin-top: 20px;">
@@ -313,7 +376,7 @@
 
       <div style="display: flex; flex-direction: column; gap: 20px;">
         <div class="card reveal">
-          <h4 style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 14px;">Compétences validées</h4>
+          <h4 style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 14px;">Compétences visées</h4>
           <a href="comp-concevoir.html" class="comp-link">
             <span><strong>CONCEVOIR</strong><br>Critères C.1 à C.4 (ISIS / ARES)</span>
             <span>↗</span>
@@ -331,14 +394,66 @@
         <div class="card reveal" style="background: var(--bg-ice);">
           <h4 style="color: var(--navy); font-size: 16px; margin-bottom: 8px;">Livrables d'ingénierie</h4>
           <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7;">
-            • <strong>DDC :</strong> Dossier de Conception<br>
-            • <strong>DDF :</strong> Dossier de Définition &amp; Nomenclature<br>
+            • <strong>DDC :</strong> Dossier de Conception (rév. 3, 24/11/2026)<br>
+            • <strong>DDF :</strong> Dossier de Fabrication (rév. 2) : schéma, nomenclature, typons, plan de perçage, implantation<br>
             • <strong>CAO :</strong> Schéma ISIS &amp; Routage PCB ARES<br>
-            • <strong>Design :</strong> Logo vectoriel Inkscape (gravure laser)<br>
-            • <strong>DDV :</strong> Dossier de Validation expérimentale
+            • <strong>DDV :</strong> Dossier de Vérification (à venir)
           </p>
         </div>
       </div>
+    </div>
+
+    <!-- MA CONTRIBUTION PERSONNELLE -->
+    <div class="card contribution-card reveal">
+      <span class="badge badge-blue">Équipier 4 • Équipe 43</span>
+      <h2>Ma contribution personnelle</h2>
+      <p>
+        Le planning prévisionnel (PDP) répartit le travail entre les 4 équipiers : les équipiers 3 et 4 prennent en charge les blocs
+        <strong>Traitement</strong> et <strong>Action</strong> (architecture puis conception), les équipiers 1 et 2 les blocs
+        <strong>Acquisition</strong> et <strong>Énergie</strong>. La vérification est croisée : j'ai les blocs Acquisition et Énergie à vérifier.
+      </p>
+
+      <div class="contribution-grid">
+        <div class="contribution-item">
+          <span class="badge badge-green">Fait</span>
+          <h4>Bloc Traitement (avec l'équipier 3)</h4>
+          <p>Rédacteur des paragraphes <code>CPR_COMPARAISONS</code> et <code>CDT_COMPARAISONS</code> du DDC : choix du double AOP MCP6002 en comparateurs, de la porte NOR (avec sa table de vérité) et trois simulations ISIS à 20 °C, 38 °C et 50 °C, avec une seule sortie active à chaque fois.</p>
+        </div>
+
+        <div class="contribution-item">
+          <span class="badge badge-green">Fait</span>
+          <h4>Bloc Action (avec l'équipier 3)</h4>
+          <p>Rédacteur de <code>CPR_ALLUMAGES</code>, <code>CPR_INTENSITES</code> et <code>CDT_INTENSITES</code> : montage des LED en logique positive, courant nécessaire pour 50 mcd, calcul puis normalisation (E24) des résistances de limitation et vérification par simulation ISIS.</p>
+        </div>
+
+        <div class="contribution-item">
+          <span class="badge badge-green">Fait</span>
+          <h4>Relecture croisée</h4>
+          <p>Relecteur des paragraphes Acquisition, Énergie, Dimensions et Coût du DDC, et de l'ensemble du DDF (schéma, nomenclature, typons, perçage, implantation, processus de fabrication).</p>
+        </div>
+
+        <div class="contribution-item">
+          <span class="badge badge-gray">À venir</span>
+          <h4>Vérification : Acquisition et Énergie</h4>
+          <p>Essais du bloc Acquisition (LM35 et seuils) et du bloc Énergie (LiPo 2S et régulateur LM78L05), à consigner dans le DDV avec résultat attendu, résultat obtenu et statut de chaque essai.</p>
+        </div>
+      </div>
+
+      <h3 style="color: var(--navy); font-size: 17px; margin: 26px 0 8px;">Mon dimensionnement des LED (DDC, CDT_INTENSITES)</h3>
+      <p>Exigence : 50 mcd à ±10 %, sous VCC = 5 V (sortie de l'AOP à 4,975 V). La tolérance de 10 % est divisée par deux pour fixer celle de la résistance (±5 %).</p>
+      <div class="table-wrap">
+        <table class="calc-table">
+          <thead>
+            <tr><th>LED</th><th>Courant visé</th><th>R calculée</th><th>R retenue (E24)</th><th>Courant simulé</th><th>Écart</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Verte (HLMP-Y801-JPP00)</td><td>3,23 mA</td><td>942,7 Ω</td><td>910 Ω</td><td>3,34 mA</td><td>+3,41 %</td></tr>
+            <tr><td>Rouge (TLDR4900)</td><td>5 mA</td><td>655 Ω</td><td>680 Ω</td><td>4,82 mA</td><td>−3,6 %</td></tr>
+            <tr><td>Bleue (MP000436)</td><td>0,5 mA</td><td>4 820 Ω</td><td>4 700 Ω</td><td>505 µA</td><td>+1 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top: 10px;">Formule utilisée : R = (VOH − Vf) / If, avec Vf = 1,93 V (verte), 1,7 V (rouge) et 2,565 V (bleue).</p>
     </div>
 
     <h2 class="section-title reveal">Bilan des acquis de la SAÉ</h2>
@@ -348,9 +463,9 @@
         <h3>Savoir-faire</h3>
         <ul>
           <li>Traduire un cahier des charges en 4 blocs fonctionnels (Énergie, Acquisition, Traitement, Action).</li>
-          <li>Dimensionner un pont diviseur de précision et des comparateurs à AOP (MCP6002) + logique combinatoire (74HC02).</li>
+          <li>Concevoir des comparateurs à AOP (MCP6002) et une logique combinatoire (74HC02), puis dimensionner et normaliser (E24) les résistances de limitation des LEDs.</li>
           <li>Simuler le comportement électrique sous Proteus ISIS et placer/router un PCB sous ARES.</li>
-          <li>Concevoir un visuel vectoriel sous Inkscape pour l'usinage laser.</li>
+          <li>Rédiger des paragraphes de conception justifiés (DDC) et relire de façon croisée les dossiers de l'équipe (DDC, DDF).</li>
         </ul>
       </div>
 
@@ -358,9 +473,9 @@
         <span class="badge badge-green">Humain &amp; Projet</span>
         <h3>Savoir-être</h3>
         <ul>
-          <li><strong>Travail collaboratif :</strong> Répartition efficace des tâches et entraide au sein d'une équipe de 4 étudiants (Équipe 43).</li>
+          <li><strong>Travail collaboratif :</strong> Répartition des tâches par blocs entre équipiers et relecture croisée des dossiers au sein d'une équipe de 4 étudiants (Équipe 43).</li>
           <li><strong>Rigueur &amp; Autonomie :</strong> Vérification systématique des empreintes composants et des règles de routage avant fabrication.</li>
-          <li><strong>Gestion de projet (Manager) :</strong> Respect des jalons sur 40 heures, suivi du budget (&lt; 20 €) et rédaction structurée des dossiers techniques.</li>
+          <li><strong>Gestion de projet (Manager) :</strong> Suivi du planning sur 40 heures avec seulement 1 heure de marge, suivi du budget (&lt; 20 €) et rédaction structurée des dossiers techniques.</li>
         </ul>
       </div>
 
@@ -398,9 +513,9 @@
 
       <div class="card proof-item reveal">
         <div>
-          <img src="simu-chaude.png" alt="Simulation ISIS Eau Chaude 57°C" class="proof-img light-bg">
+          <img src="simu-chaude.png" alt="Simulation ISIS Eau Chaude 50°C" class="proof-img light-bg">
           <span class="badge badge-amber" style="margin-bottom: 8px;">Simulation ISIS • Cas 3</span>
-          <h4>Test seuil haut : Eau chaude (T &gt; 39 °C / V3 = 0,57 V)</h4>
+          <h4>Test seuil haut : Eau chaude (T = 50 °C / V3 = 0,50 V)</h4>
           <p>Au-dessus du seuil de sécurité de 39 °C (0,39 V), le comparateur <code>AOP:A</code> bascule et active la sortie <code>EAU CHAUDE</code> à <strong>+5,00 V</strong> (alerte LED rouge).</p>
         </div>
       </div>
@@ -410,7 +525,7 @@
           <img src="pcb-ares.png" alt="Placement composants PCB sous ARES" class="proof-img">
           <span class="badge badge-navy" style="margin-bottom: 8px;">CAO PCB • Proteus ARES</span>
           <h4>Placement des composants sur circuit imprimé (TDB-EQ43)</h4>
-          <p>Organisation logique de gauche à droite suivant le flux du signal : alimentation (<code>J1</code>, <code>SW1</code>, <code>U6</code>), capteur et pont de seuils (<code>U3</code>, <code>R1–R5</code>), traitement (<code>MCP6002</code>, <code>74HC02</code>) et LEDs en bord de carte.</p>
+          <p>Organisation logique de gauche à droite suivant le flux du signal : alimentation (<code>J1</code>, <code>SW1</code>, <code>U8</code>), capteur et pont de seuils (<code>U3</code>, <code>R1–R5</code>), traitement (<code>MCP6002</code>, <code>74HC02</code>) et LEDs en bord de carte.</p>
         </div>
       </div>
     </div>
@@ -439,32 +554,32 @@
           </div>
         </div>
 
-        <div class="phase-card phase-active reveal">
+        <div class="phase-card phase-done reveal">
           <div>
-            <span class="badge badge-amber">En cours</span>
+            <span class="badge badge-green">Terminé</span>
             <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Séances 7 à 12</p>
             <h3>2. Conception détaillée</h3>
             <ul>
-              <li>Placement et routage complet du PCB sous ARES (100 × 60 mm).</li>
-              <li>Création du logo vectoriel sous Inkscape.</li>
-              <li>Finalisation des dossiers DDC et DDF + nomenclature.</li>
+              <li>Schéma électrique complet, dimensionnement et simulations ISIS.</li>
+              <li>Placement et routage du PCB sous ARES (100 × 60 mm).</li>
+              <li>DDC (rév. 3) et DDF (rév. 2) livrés le 24/11/2026, matrice de conformité complète.</li>
             </ul>
           </div>
           <div class="phase-footer">
-            <strong>Livrables :</strong> DDF, fichiers Gerber<br>
+            <strong>Livrables :</strong> DDC, DDF (typons, perçage, implantation)<br>
             <div style="margin-top: 8px;"><span class="badge badge-blue">CONCEVOIR C.4</span></div>
           </div>
         </div>
 
-        <div class="phase-card reveal">
+        <div class="phase-card phase-active reveal">
           <div>
-            <span class="badge badge-gray">À venir</span>
+            <span class="badge badge-amber">Prochaine étape</span>
             <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Séances 12 à 15</p>
             <h3>3. Fabrication</h3>
             <ul>
-              <li>Gravure et perçage du circuit imprimé.</li>
-              <li>Brasage des composants (U3, U6, MCP6002, 74HC02, LEDs).</li>
-              <li>Usinage laser du boîtier et intégration mécanique.</li>
+              <li>Insolation, révélation, gravure et perçage du circuit imprimé à partir des typons.</li>
+              <li>Brasage des composants (LM35, LM78L05, MCP6002, 74HC02, LEDs).</li>
+              <li>Assemblage mécanique et contrôle de la fabrication.</li>
             </ul>
           </div>
           <div class="phase-footer">
@@ -481,7 +596,7 @@
             <ul>
               <li>Tests fonctionnels et étalonnage (36,0 °C et 39,0 °C).</li>
               <li>Mesure de l'autonomie sur batterie LiPo 2S.</li>
-              <li>Rédaction du Dossier de Validation (DDV).</li>
+              <li>Rédaction du Dossier de Vérification (DDV).</li>
             </ul>
           </div>
           <div class="phase-footer">
