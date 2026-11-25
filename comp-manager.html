@@ -7,21 +7,171 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .hero-sub { min-height: 260px !important; padding: 65px 20px !important; }
+    .hero-sub {
+      min-height: 280px !important;
+      padding: 70px 20px !important;
+    }
+
     .breadcrumb {
-      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
-      color: var(--navy); font-weight: 600; font-size: 14.5px; margin-bottom: 24px;
-      padding: 8px 14px; background: var(--bg-ice); border-radius: 8px; transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 14.5px;
+      margin-bottom: 24px;
+      padding: 8px 14px;
+      background: var(--bg-ice);
+      border-radius: 8px;
+      transition: 0.2s;
     }
-    .breadcrumb:hover { background: var(--primary); color: #ffffff; }
-    .ac-detail-card { margin-bottom: 24px; border-left: 5px solid #334155; }
-    .ac-detail-card h2 { color: var(--navy); font-size: 19px; margin: 10px 0 12px; }
-    .proof-box {
-      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
-      padding: 16px 20px; margin-top: 12px;
+
+    .breadcrumb:hover {
+      background: var(--primary);
+      color: #ffffff;
     }
-    .proof-box h4 { font-size: 13.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
-    .proof-box p { font-size: 14.5px; color: var(--text-muted); }
+
+    .overview {
+      margin-bottom: 44px;
+    }
+
+    .overview h2 {
+      color: var(--navy);
+      font-size: 22px;
+      margin: 10px 0 10px;
+    }
+
+    .overview p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .crit {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 22px;
+      margin-bottom: 36px;
+    }
+
+    .crit-side {
+      text-align: center;
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+
+    .crit-code {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e293b, #334155);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 auto 10px;
+      box-shadow: 0 10px 24px rgba(30, 41, 59, 0.25);
+    }
+
+    .crit-body {
+      padding: 26px 28px;
+    }
+
+    .crit-body h2 {
+      color: var(--navy);
+      font-size: 20px;
+      margin: 8px 0 6px;
+      line-height: 1.35;
+    }
+
+    .crit-def {
+      font-size: 13.5px;
+      font-style: italic;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    .crit-body p,
+    .crit-body li {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .crit-body ul {
+      padding-left: 18px;
+      margin-top: 8px;
+    }
+
+    .crit-body li {
+      margin-bottom: 8px;
+    }
+
+    .tiles-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .tile {
+      background: var(--bg-ice);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      border-top: 3px solid var(--navy);
+    }
+
+    .tile strong {
+      display: block;
+      font-size: 20px;
+      color: var(--navy);
+    }
+
+    .tile span {
+      display: block;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid #eef2f7;
+    }
+
+    .chip {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--bg-ice);
+      color: var(--navy);
+      border: 1px solid #cfe9f7;
+    }
+
+    .pager {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 10px 0 48px;
+    }
+
+    @media (max-width: 900px) {
+      .tiles-3 { grid-template-columns: 1fr; }
+      .crit { grid-template-columns: 1fr; }
+      .crit-side { position: static; display: flex; align-items: center; gap: 14px; text-align: left; }
+      .crit-code { margin: 0; width: 64px; height: 64px; font-size: 19px; flex: 0 0 auto; }
+    }
   </style>
 </head>
 <body>
@@ -48,8 +198,6 @@
             <li><a href="competences.html">Vue d'ensemble</a></li>
             <li><a href="comp-concevoir.html">Concevoir (C.1 à C.4)</a></li>
             <li><a href="comp-verifier.html">Vérifier (V.1 à V.2)</a></li>
-            <li><a href="comp-maintenir.html">Maintenir (M.1 à M.2)</a></li>
-            <li><a href="comp-installer.html">Installer — EME (I.2)</a></li>
             <li><a href="comp-manager.html">Manager (G.1 à G.3)</a></li>
           </ul>
         </li>
@@ -67,38 +215,103 @@
   <section class="hero hero-sub">
     <div class="hero-bar"></div>
     <h1>Compétence : MANAGER</h1>
-    <p>Critères G.1 à G.3 — Gestion de projet, communication et éthique</p>
+    <p>Critères G.1 à G.3 — Organisation d'équipe, communication, budget et éthique</p>
   </section>
 
   <div class="container">
     <a href="competences.html" class="breadcrumb">← Retour au référentiel de compétences</a>
 
-    <div class="card ac-detail-card reveal">
-      <span class="badge badge-navy">Critère G.1</span>
-      <h2>G.1 : Je rédige et archive différents documents professionnels (e-mails, supports de présentations, comptes rendus, rapports...) établis dans différentes langues (Français, Anglais, Espagnol...)</h2>
-      <div class="proof-box">
-        <h4>Preuves S1 — Documentation technique &amp; Communication multilingue</h4>
-        <p>• Rédaction structurée et archivage des dossiers techniques d'ingénierie (DDF, DDC) au sein de l'Équipe 43.<br>
-           • Réalisation d'un portfolio web trilingue (<strong>Français, Anglais, Espagnol</strong>) et présentation d'un support oral en <strong>Anglais</strong> autour de la formation BUT GEII.</p>
-      </div>
+    <div class="card overview reveal">
+      <span class="badge badge-navy">Compétence transversale • Savoir-être</span>
+      <h2>Piloter un projet en équipe et communiquer avec rigueur</h2>
+      <p>
+        Au-delà des calculs et du routage électronique, la SAÉ Thermomètre de bain (TDB-EQ43) mobilise des compétences organisationnelles et relationnelles : coordonner le travail à 4 sur un planning de 40 heures, tracer les révisions documentaires, respecter un budget strict et intégrer l'anglais technique.
+      </p>
     </div>
 
-    <div class="card ac-detail-card reveal">
-      <span class="badge badge-navy">Critère G.2</span>
-      <h2>G.2 : J'effectue des tâches administratives (passer des commandes, demander un devis, gestion d'un budget, ...)</h2>
-      <div class="proof-box">
-        <h4>Preuve S1 — Gestion budgétaire &amp; Nomenclature (SAÉ S1)</h4>
-        <p>Établissement de la nomenclature complète des composants (BOM) pour le thermomètre de bain <code>TDB-EQ43</code>, chiffrage des coûts unitaires et vérification de la contrainte budgétaire stricte du cahier des charges (<strong>coût total inférieur à 20 €</strong>).</p>
+    <!-- G.1 -->
+    <section class="crit reveal" id="g1">
+      <div class="crit-side">
+        <div class="crit-code">G.1</div>
+        <span class="badge badge-green">Démontré</span>
       </div>
-    </div>
+      <div class="card crit-body">
+        <span class="badge badge-navy">Critère G.1</span>
+        <h2>Je rédige et archive différents documents professionnels établis dans différentes langues (Français, Anglais, Espagnol...)</h2>
+        <p class="crit-def">Documentation d'ingénierie, travail collaboratif et ouverture linguistique.</p>
 
-    <div class="card ac-detail-card reveal">
-      <span class="badge badge-navy">Critère G.3</span>
-      <h2>G.3 : Je privilégie une démarche éthique pour répondre aux enjeux économiques, réglementaires et environnementaux de la Société</h2>
-      <div class="proof-box">
-        <h4>Preuve S1 — Éco-conception &amp; Sobriété</h4>
-        <p>Optimisation de la surface du circuit imprimé (<strong>100 × 60 mm</strong>) afin de limiter la consommation de matière première, sélection d'une alimentation rechargeable (batterie LiPo 2S) plutôt que des piles jetables, et respect des règles de sécurité électrique en milieu humide.</p>
+        <ul>
+          <li><strong>Gestion documentaire et versionnage (Équipe 43) :</strong> Rédaction structurée, archivage et suivi des indices de révision du Dossier de Conception (passé de la rév. 2 à la rév. 3 après relecture croisée) et du Dossier de Fabrication (rév. 2).</li>
+          <li><strong>Usage de l'anglais technique :</strong> Lecture et extraction des paramètres électriques dans les datasheets constructeurs en anglais (LM35, MCP6002, 74HC02, LEDs), et préparation d'un support de présentation orale en <strong>Anglais</strong> autour de la formation BUT GEII.</li>
+          <li><strong>Portfolio multilingue :</strong> Structuration de ce site web avec versions en <strong>Français, Anglais et Espagnol</strong> pour valoriser mon profil auprès d'un public international.</li>
+        </ul>
+
+        <div class="chips">
+          <span class="chip">DDC rév. 3 &amp; DDF rév. 2</span>
+          <span class="chip">Relecture croisée à 4</span>
+          <span class="chip">Datasheets &amp; Oral en Anglais</span>
+          <span class="chip">Ressources : Culture-Com &amp; Anglais</span>
+        </div>
       </div>
+    </section>
+
+    <!-- G.2 -->
+    <section class="crit reveal" id="g2">
+      <div class="crit-side">
+        <div class="crit-code">G.2</div>
+        <span class="badge badge-green">Démontré</span>
+      </div>
+      <div class="card crit-body">
+        <span class="badge badge-navy">Critère G.2</span>
+        <h2>J'effectue des tâches administratives (passer des commandes, demander un devis, gestion d'un budget...)</h2>
+        <p class="crit-def">Chiffrage des composants, nomenclature et suivi du planning.</p>
+
+        <p>
+          Dans le cadre de la SAÉ S1, j'ai participé à la vérification de la nomenclature complète (BOM) et du chiffrage économique du thermomètre <code>TDB-EQ43</code> afin de garantir le respect des contraintes de coût et de délais :
+        </p>
+
+        <div class="tiles-3">
+          <div class="tile"><strong>7,01 € TTC</strong><span>Coût total estimé des composants</span></div>
+          <div class="tile"><strong>&lt; 20,00 €</strong><span>Plafond budgétaire du cahier des charges</span></div>
+          <div class="tile"><strong>40 heures</strong><span>Planning projet (avec 1 h de marge)</span></div>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Nomenclature (BOM)</span>
+          <span class="chip">Respect du budget (−65 % sous le plafond)</span>
+          <span class="chip">Suivi de planning (PDP)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- G.3 -->
+    <section class="crit reveal" id="g3">
+      <div class="crit-side">
+        <div class="crit-code">G.3</div>
+        <span class="badge badge-green">Démontré</span>
+      </div>
+      <div class="card crit-body">
+        <span class="badge badge-navy">Critère G.3</span>
+        <h2>Je privilégie une démarche éthique pour répondre aux enjeux économiques, réglementaires et environnementaux</h2>
+        <p class="crit-def">Éco-conception, sobriété matérielle et sécurité d'utilisation.</p>
+
+        <ul>
+          <li><strong>Réduction des déchets électroniques :</strong> Choix d'une alimentation par accumulateur rechargeable <strong>LiPo 2S</strong> (autonomie supérieure à 24 h) plutôt que des piles alcalines jetables.</li>
+          <li><strong>Sobriété matière et optimisation PCB :</strong> Dimensionnement compact de la carte (<strong>100 × 60 mm</strong>) et mutualisation des fonctions (double AOP MCP6002 en un seul boîtier) pour limiter la surface de cuivre/époxy et le nombre de composants.</li>
+          <li><strong>Sécurité et réglementation :</strong> Sélection de composants conformes à la directive <strong>RoHS</strong> (sans plomb) et intégration d'une alerte visuelle claire à 39,0 °C pour prévenir tout risque de brûlure lors du bain.</li>
+        </ul>
+
+        <div class="chips">
+          <span class="chip">Batterie rechargeable LiPo 2S</span>
+          <span class="chip">Sobriété PCB (100 × 60 mm)</span>
+          <span class="chip">Conformité RoHS &amp; Sécurité</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="pager">
+      <a href="comp-verifier.html" class="breadcrumb">← Vérifier</a>
+      <a href="competences.html" class="breadcrumb">Retour au référentiel →</a>
     </div>
   </div>
 

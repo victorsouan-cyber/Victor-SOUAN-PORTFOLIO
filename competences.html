@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compétences BUT GEII — SOUAN Victor</title>
+  <title>Compétences BUT1 GEII — SOUAN Victor</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -15,38 +15,19 @@
     .ref-notice {
       background: linear-gradient(135deg, #f8fafc 0%, #e7f5fc 100%);
       border-left: 6px solid var(--primary);
-      margin-bottom: 42px;
+      margin-bottom: 36px;
     }
 
     .ref-notice h2 {
       color: var(--navy);
       font-size: 21px;
-      margin: 10px 0 12px;
+      margin: 10px 0 10px;
     }
 
     .ref-notice p {
       font-size: 15px;
       color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .category-label {
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--primary);
-      margin: 36px 0 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .category-label::after {
-      content: '';
-      flex: 1;
-      height: 1.5px;
-      background: #e2e8f0;
+      line-height: 1.6;
     }
 
     .comp-grid {
@@ -69,7 +50,7 @@
       padding: 22px 24px;
     }
 
-    .comp-card-header.parcours {
+    .comp-card-header.verifier {
       background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
     }
 
@@ -103,11 +84,13 @@
       list-style: none;
       font-size: 13.5px;
       color: var(--text-muted);
+      margin-top: 10px;
     }
 
     .ac-preview-list li {
-      padding: 6px 0;
+      padding: 7px 0;
       border-bottom: 1px solid #f1f5f9;
+      line-height: 1.45;
     }
 
     .ac-preview-list li:last-child {
@@ -147,8 +130,6 @@
             <li><a href="competences.html">Vue d'ensemble</a></li>
             <li><a href="comp-concevoir.html">Concevoir (C.1 à C.4)</a></li>
             <li><a href="comp-verifier.html">Vérifier (V.1 à V.2)</a></li>
-            <li><a href="comp-maintenir.html">Maintenir (M.1 à M.2)</a></li>
-            <li><a href="comp-installer.html">Installer — EME (I.2)</a></li>
             <li><a href="comp-manager.html">Manager (G.1 à G.3)</a></li>
           </ul>
         </li>
@@ -165,23 +146,19 @@
 
   <section class="hero hero-sub">
     <div class="hero-bar"></div>
-    <h1>Référentiel de Compétences</h1>
-    <p>Portefeuille de preuves sur les 6 semestres du BUT GEII — IUT de Bordeaux</p>
+    <h1>Référentiel de Compétences — BUT 1</h1>
+    <p>Portefeuille de preuves centré sur les 3 compétences de 1ère année — IUT de Bordeaux</p>
   </section>
 
   <div class="container">
     <div class="card ref-notice reveal">
-      <span class="badge badge-blue">Démarche Portfolio • 3 ans</span>
-      <h2>Une démarche de progression sur 3 ans</h2>
+      <span class="badge badge-blue">Référentiel BUT1 GEII</span>
+      <h2>Les 3 compétences travaillées en 1ère année</h2>
       <p>
-        Ce portfolio retrace l'acquisition progressive de mes compétences tout au long de mon <strong>BUT Génie Électrique et Informatique Industrielle (GEII)</strong>. Chaque bloc du référentiel est illustré par des réalisations concrètes et des preuves techniques issues de mes <strong>Situations d'Apprentissage et d'Évaluation (SAÉ)</strong>, de mes travaux pratiques et de mes expériences de terrain.
-      </p>
-      <p style="margin-bottom: 0;">
-        Au-delà de la maîtrise technique (concevoir, vérifier, maintenir et installer des systèmes énergétiques), ce référentiel intègre la compétence transversale <strong>Manager</strong>, qui valorise ma capacité à piloter un projet en équipe, produire une documentation d'ingénierie rigoureuse, gérer un budget et intégrer les enjeux environnementaux.
+        Conformément au programme de 1ère année du <strong>BUT Génie Électrique et Informatique Industrielle</strong>, ce portfolio présente les preuves commentées de mes acquis autour des deux compétences techniques de tronc commun (<strong>Concevoir</strong> et <strong>Vérifier</strong>) et de la compétence transversale <strong>Manager</strong>, illustrées principalement par la <strong>SAÉ Thermomètre de bain (TDB-EQ43)</strong>. Les compétences <em>Maintenir</em> et <em>Installer (parcours EME)</em> viendront compléter ce référentiel à partir de la 2e année.
       </p>
     </div>
 
-    <div class="category-label reveal">Tronc commun BUT GEII</div>
     <div class="comp-grid">
       <div class="card comp-card reveal">
         <div>
@@ -190,12 +167,15 @@
             <h3>CONCEVOIR</h3>
           </div>
           <div class="comp-card-body">
-            <ul class="ac-preview-list">
-              <li><strong>C.1 :</strong> Identifier les fonctions demandées à la lecture du cahier des charges</li>
-              <li><strong>C.2 :</strong> Proposer une solution technique pour répondre à une fonction</li>
-              <li><strong>C.3 :</strong> Affiner une solution par maquettage numérique et/ou matériel</li>
-              <li><strong>C.4 :</strong> Rédiger un dossier de conception et de fabrication</li>
-            </ul>
+            <div>
+              <span class="badge badge-green">Démontré (DDC &amp; DDF)</span>
+              <ul class="ac-preview-list">
+                <li><strong>C.1 :</strong> Identifier les fonctions demandées à la lecture du cahier des charges</li>
+                <li><strong>C.2 :</strong> Proposer une solution technique pour répondre à une fonction</li>
+                <li><strong>C.3 :</strong> Affiner une solution par maquettage numérique et/ou matériel</li>
+                <li><strong>C.4 :</strong> Rédiger un dossier de conception et de fabrication</li>
+              </ul>
+            </div>
             <a href="comp-concevoir.html" class="btn-navy" style="width: 100%;">Voir les preuves C.1 à C.4 →</a>
           </div>
         </div>
@@ -203,15 +183,18 @@
 
       <div class="card comp-card reveal">
         <div>
-          <div class="comp-card-header">
+          <div class="comp-card-header verifier">
             <span>Compétence 02 • Tronc commun</span>
             <h3>VÉRIFIER</h3>
           </div>
           <div class="comp-card-body">
-            <ul class="ac-preview-list">
-              <li><strong>V.1 :</strong> Appliquer, élaborer et rédiger une procédure d'essais</li>
-              <li><strong>V.2 :</strong> Identifier et corriger les non-conformités d'un prototype</li>
-            </ul>
+            <div>
+              <span class="badge badge-amber">En cours (Simulations validées, essais à venir)</span>
+              <ul class="ac-preview-list">
+                <li><strong>V.1 :</strong> Appliquer, élaborer et rédiger une procédure d'essais</li>
+                <li><strong>V.2 :</strong> Identifier et corriger les non-conformités d'un prototype</li>
+              </ul>
+            </div>
             <a href="comp-verifier.html" class="btn-navy" style="width: 100%;">Voir les preuves V.1 à V.2 →</a>
           </div>
         </div>
@@ -219,54 +202,19 @@
 
       <div class="card comp-card reveal">
         <div>
-          <div class="comp-card-header">
-            <span>Compétence 03 • Tronc commun</span>
-            <h3>MAINTENIR</h3>
-          </div>
-          <div class="comp-card-body">
-            <ul class="ac-preview-list">
-              <li><strong>M.1 :</strong> Appliquer une opération de maintenance (préventive, corrective, améliorative)</li>
-              <li><strong>M.2 :</strong> Rédiger la procédure de maintenance d'un système</li>
-            </ul>
-            <a href="comp-maintenir.html" class="btn-navy" style="width: 100%;">Voir les preuves M.1 à M.2 →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="category-label reveal">Parcours de spécialisation &amp; Gestion de projet</div>
-    <div class="comp-grid" style="grid-template-columns: repeat(2, 1fr);">
-      <div class="card comp-card reveal">
-        <div>
-          <div class="comp-card-header parcours">
-            <span>Compétence 04 • Parcours EME (Électricité &amp; Maîtrise de l'Énergie)</span>
-            <h3>INSTALLER (EME)</h3>
-          </div>
-          <div class="comp-card-body">
-            <p style="font-size: 14px; color: var(--text-muted);">
-              Compétence spécifique au parcours <strong>Électricité et Maîtrise de l'Énergie (EME)</strong> visé en 2e année (distincte des parcours <em>Intégrer AII</em> et <em>Implanter ESE</em>).
-            </p>
-            <ul class="ac-preview-list">
-              <li><strong>I.2.1 :</strong> Exécuter l'installation et la mise en service d'un système</li>
-              <li><strong>I.2.2 :</strong> Gérer le processus d'installation et de mise en service d'un système</li>
-            </ul>
-            <a href="comp-installer.html" class="btn-navy" style="width: 100%;">Voir la fiche Installer (EME) →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card comp-card reveal">
-        <div>
           <div class="comp-card-header manager">
-            <span>Compétence 05 • Transversale Portfolio</span>
+            <span>Compétence 03 • Transversale</span>
             <h3>MANAGER</h3>
           </div>
           <div class="comp-card-body">
-            <ul class="ac-preview-list">
-              <li><strong>G.1 :</strong> Rédiger et archiver des documents professionnels multilingues (Français, Anglais...)</li>
-              <li><strong>G.2 :</strong> Effectuer des tâches administratives (commandes, devis, gestion d'un budget)</li>
-              <li><strong>G.3 :</strong> Privilégier une démarche éthique (enjeux économiques, réglementaires, environnementaux)</li>
-            </ul>
+            <div>
+              <span class="badge badge-green">Démontré (Équipe, Budget &amp; Anglais)</span>
+              <ul class="ac-preview-list">
+                <li><strong>G.1 :</strong> Rédiger et archiver des documents professionnels multilingues (Français, Anglais...)</li>
+                <li><strong>G.2 :</strong> Effectuer des tâches administratives (commandes, devis, gestion d'un budget)</li>
+                <li><strong>G.3 :</strong> Privilégier une démarche éthique (enjeux économiques, réglementaires, environnementaux)</li>
+              </ul>
+            </div>
             <a href="comp-manager.html" class="btn-navy" style="width: 100%;">Voir les preuves G.1 à G.3 →</a>
           </div>
         </div>

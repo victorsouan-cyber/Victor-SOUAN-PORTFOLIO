@@ -32,7 +32,6 @@
       color: #ffffff;
     }
 
-    /* ---------- Vue d'ensemble ---------- */
     .overview {
       display: grid;
       grid-template-columns: 1.5fr 1fr;
@@ -50,6 +49,7 @@
     .overview p {
       font-size: 14.5px;
       color: var(--text-muted);
+      line-height: 1.55;
     }
 
     .overview-steps {
@@ -94,7 +94,6 @@
       line-height: 1.35;
     }
 
-    /* ---------- Critères ---------- */
     .crit {
       display: grid;
       grid-template-columns: 112px 1fr;
@@ -145,6 +144,7 @@
     .crit-body li {
       font-size: 14.5px;
       color: var(--text-muted);
+      line-height: 1.55;
     }
 
     .crit-body ul {
@@ -181,7 +181,6 @@
       border: 1px solid #cfe9f7;
     }
 
-    /* ---------- Blocs de preuves ---------- */
     .blocks-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -440,8 +439,6 @@
             <li><a href="competences.html">Vue d'ensemble</a></li>
             <li><a href="comp-concevoir.html">Concevoir (C.1 à C.4)</a></li>
             <li><a href="comp-verifier.html">Vérifier (V.1 à V.2)</a></li>
-            <li><a href="comp-maintenir.html">Maintenir (M.1 à M.2)</a></li>
-            <li><a href="comp-installer.html">Installer — EME (I.2)</a></li>
             <li><a href="comp-manager.html">Manager (G.1 à G.3)</a></li>
           </ul>
         </li>
@@ -465,16 +462,14 @@
   <div class="container">
     <a href="competences.html" class="breadcrumb">← Retour au référentiel de compétences</a>
 
-    <!-- VUE D'ENSEMBLE -->
     <div class="overview">
       <div class="card reveal">
         <span class="badge badge-blue">Preuves issues de la SAÉ S1</span>
         <h2>De l'exigence client à la carte électronique</h2>
         <p>
-          Toutes les preuves de cette page viennent du projet <strong>Thermomètre de bain (TDB-EQ43)</strong> : le dossier de conception
-          (<strong>DDC</strong>, rév. 3 du 24/11/2026) et le dossier de fabrication (<strong>DDF</strong>, rév. 2).
-          Dans l'équipe, mes blocs sont le <strong>Traitement</strong> et l'<strong>Action</strong> (avec l'équipier 3) : j'y suis rédacteur
-          des paragraphes de conception. Je suis relecteur de tous les autres.
+          Toutes les preuves de cette page viennent du projet <strong>Thermomètre de bain (TDB-EQ43)</strong> : le Dossier de Conception
+          (<strong>DDC</strong>, rév. 3 du 24/11/2026) et le Dossier de Fabrication (<strong>DDF</strong>, rév. 2).
+          Dans l'Équipe 43, je suis responsable avec <strong>Dylan</strong> des blocs <strong>Traitement</strong> et <strong>Action</strong>, et relecteur des blocs conçus par <strong>Enzo</strong> et <strong>Louis</strong>.
         </p>
       </div>
       <div class="card reveal">
@@ -499,8 +494,8 @@
         <p class="crit-def">Architecture fonctionnelle, sans solution technique.</p>
 
         <p>
-          Le cahier des charges de Baby Corporation fixe <strong>10 exigences</strong> (architecture, mesure, seuils, comparaisons, allumages,
-          intensités, autonomie, marche/arrêt, dimensions, coût). Elles sont rattachées aux 4 blocs fonctionnels du synoptique du DDC.
+          Le cahier des charges fixe <strong>10 exigences</strong> (architecture, mesure, seuils, comparaisons, allumages,
+          intensités, autonomie, marche/arrêt, dimensions, coût), rattachées aux 4 blocs fonctionnels du synoptique :
         </p>
 
         <div class="blocks-grid">
@@ -509,21 +504,20 @@
           <div class="block-tile mine"><strong>Traitement</strong><span>comparaisons</span></div>
           <div class="block-tile mine"><strong>Action</strong><span>allumages, intensités</span></div>
         </div>
-        <p class="legend">En vert : les deux blocs dont je suis responsable avec l'équipier 3.</p>
+        <p class="legend">En vert : les deux blocs dont je suis responsable avec Dylan.</p>
 
-        <h3>Ma part</h3>
+        <h3>Ma contribution</h3>
         <ul>
           <li><strong>Traitement :</strong> distinguer l'eau froide (moins de 36 °C), tiède (entre 36 °C et 39 °C) et chaude (plus de 39 °C).</li>
           <li><strong>Action :</strong> un voyant par état (bleu, vert, rouge), avec une intensité lumineuse de 50 mcd à ±10 %.</li>
-          <li><strong>Relecture</strong> du paragraphe d'architecture du DDC rédigé par Enzo et Louis.</li>
+          <li><strong>Relecture croisée</strong> de l'architecture fonctionnelle du DDC rédigée par Enzo et Louis.</li>
         </ul>
 
         <div class="chips">
-          <span class="chip">DDC · CPR_ARCHITECTURE</span>
-          <span class="chip">Code référentiel C1a-3</span>
-          <span class="chip">EXIG_COMPARAISONS</span>
-          <span class="chip">EXIG_ALLUMAGES</span>
-          <span class="chip">EXIG_INTENSITES</span>
+          <span class="chip">Analyse fonctionnelle</span>
+          <span class="chip">Cahier des charges (10 exigences)</span>
+          <span class="chip">Synoptique 4 blocs</span>
+          <span class="chip">Ressources : Électronique &amp; Conception</span>
         </div>
       </div>
     </section>
@@ -542,19 +536,19 @@
         <div class="decisions">
           <div class="decision">
             <h4>Deux comparateurs dans un seul boîtier</h4>
-            <p>Double AOP <strong>MCP6002</strong> : aucune exigence de vitesse particulière, un AOP coûte moins cher qu'un comparateur dédié et prend moins de place.</p>
+            <p>Double AOP <strong>MCP6002</strong> : aucune contrainte de vitesse élevée, un AOP est plus économique qu'un comparateur dédié et réduit l'encombrement sur la carte.</p>
           </div>
           <div class="decision">
             <h4>Eau tiède = ni froide, ni chaude</h4>
-            <p>Une porte <strong>NOR (74HC02)</strong> donne directement l'état « tiède » et évite d'ajouter un inverseur.</p>
+            <p>Une porte logique <strong>NOR (74HC02)</strong> délivre directement l'état « tiède » à partir des deux sorties de comparateurs, sans ajouter d'inverseur.</p>
           </div>
           <div class="decision">
             <h4>LED en logique positive</h4>
-            <p>Le signal à l'état haut allume la LED directement. Une logique négative aurait demandé des inverseurs : plus de coût et de place sur une carte de dimensions imposées.</p>
+            <p>Le niveau haut (5 V) allume la LED directement. Une logique négative aurait imposé des inverseurs supplémentaires, augmentant le coût et la surface PCB.</p>
           </div>
           <div class="decision">
-            <h4>Trois LED qui respectent les 50 mcd</h4>
-            <p>Intensité minimale à 20 mA : 63 mcd (rouge TLDR4900), 240 mcd (verte HLMP-Y801-JPP00) et 1 500 mcd (bleue MP000436). Toutes dépassent l'exigence.</p>
+            <h4>Trois LED dépassant les 50 mcd requis</h4>
+            <p>Intensité minimale à 20 mA : 63 mcd (rouge TLDR4900), 240 mcd (verte HLMP-Y801-JPP00) et 1 500 mcd (bleue MP000436). Toutes respectent le cahier des charges.</p>
           </div>
         </div>
 
@@ -572,11 +566,10 @@
         </div>
 
         <div class="chips">
-          <span class="chip">DDC · CPR_COMPARAISONS</span>
-          <span class="chip">DDC · CPR_ALLUMAGES</span>
-          <span class="chip">DDC · CPR_INTENSITES</span>
-          <span class="chip">Codes C1a-9, C1a-10</span>
-          <span class="chip">Rédacteur avec Dylan</span>
+          <span class="chip">Comparateurs MCP6002</span>
+          <span class="chip">Logique NOR 74HC02</span>
+          <span class="chip">Lecture de datasheets</span>
+          <span class="chip">Ressources : Électronique analogique &amp; numérique</span>
         </div>
       </div>
     </section>
@@ -592,38 +585,38 @@
         <h2>J'affine une solution technique par maquettage numérique</h2>
         <p class="crit-def">Simulations sous Proteus ISIS avant la fabrication.</p>
 
-        <h3>Le traitement fonctionne dans les trois états</h3>
-        <p>La tension du LM35 (10 mV/°C) est comparée aux seuils. À chaque température testée, <strong>une seule sortie</strong> passe à 5 V.</p>
+        <h3>Validation des 3 plages de température</h3>
+        <p>La tension du capteur LM35 (10 mV/°C) est comparée aux seuils. À chaque température simulée, <strong>une seule sortie</strong> bascule à 5 V :</p>
         <div class="sim-grid">
           <div class="sim-card">
             <img src="simu-froide.png" alt="Simulation ISIS eau froide">
-            <div><strong>Eau froide</strong><span>20 °C, soit 0,20 V : sortie EAU FROIDE à 5 V</span></div>
+            <div><strong>Eau froide</strong><span>20 °C (0,20 V) : sortie EAU FROIDE à 5 V</span></div>
           </div>
           <div class="sim-card ok">
             <img src="simu-tiede.png" alt="Simulation ISIS eau tiède">
-            <div><strong>Eau tiède</strong><span>38 °C, soit 0,38 V : sortie EAU TIÈDE à 5 V</span></div>
+            <div><strong>Eau tiède</strong><span>38 °C (0,38 V) : sortie EAU TIÈDE à 5 V</span></div>
           </div>
           <div class="sim-card warm">
             <img src="simu-chaude.png" alt="Simulation ISIS eau chaude">
-            <div><strong>Eau chaude</strong><span>50 °C, soit 0,50 V : sortie EAU CHAUDE à 5 V</span></div>
+            <div><strong>Eau chaude</strong><span>50 °C (0,50 V) : sortie EAU CHAUDE à 5 V</span></div>
           </div>
         </div>
 
-        <h3>Mes résistances de LED sont vérifiées</h3>
+        <h3>Vérification des résistances de LED (Série E24)</h3>
         <p>
-          Courant visé pour 50 mcd (3,23 mA verte, 5 mA rouge, 0,5 mA bleue), puis R = (4,975 − Vf) / If, arrondie à la série E24
-          (910 Ω, 680 Ω, 4,7 kΩ). Le courant simulé est comparé à la valeur théorique :
+          Courant visé pour 50 mcd (3,23 mA verte, 5 mA rouge, 0,5 mA bleue), calcul par <code>R = (4,975 − Vf) / If</code>, puis normalisation en série E24
+          (910 Ω, 680 Ω, 4,7 kΩ) et contrôle des écarts sous ISIS :
         </p>
         <div class="tiles">
           <div class="tile"><strong>+3,41 %</strong><span>LED verte : 3,34 mA simulés</span></div>
-          <div class="tile"><strong>−3,6 %</strong><span>LED rouge : 4,82 mA simulés</span></div>
-          <div class="tile"><strong>+1 %</strong><span>LED bleue : 505 µA simulés</span></div>
+          <div class="tile"><strong>−3,60 %</strong><span>LED rouge : 4,82 mA simulés</span></div>
+          <div class="tile"><strong>+1,00 %</strong><span>LED bleue : 505 µA simulés</span></div>
         </div>
 
         <div class="chips">
-          <span class="chip">DDC · CDT_COMPARAISONS</span>
-          <span class="chip">DDC · CDT_INTENSITES</span>
-          <span class="chip">Codes C1b-22, C1b-24, C1b-25, C1b-26</span>
+          <span class="chip">Simulation Proteus ISIS</span>
+          <span class="chip">Série normalisée E24</span>
+          <span class="chip">Tolérance ±10 % respectée</span>
           <span class="chip">Rédacteur avec Dylan</span>
         </div>
         <div class="actions">
@@ -647,27 +640,27 @@
           <div class="doc-card">
             <span class="badge badge-blue">DDC • rév. 3</span>
             <h4>Dossier de Conception</h4>
-            <p>Rédacteur de 6 paragraphes : comparaisons, allumages et intensités, en conception préliminaire puis détaillée.</p>
-            <p>Relecteur des autres paragraphes (mesure, seuils, autonomie, dimensions, coût...).</p>
-            <p>Matrice de conformité : les 10 exigences sont conformes à l'issue de la conception.</p>
+            <p>Rédacteur des 6 paragraphes des blocs <em>Comparaisons</em>, <em>Allumages</em> et <em>Intensités</em> (conception préliminaire et détaillée).</p>
+            <p>Relecteur des autres chapitres (mesure, seuils, autonomie, dimensions, coût).</p>
+            <p>Matrice de conformité : les 10 exigences sont validées à l'issue de la conception.</p>
           </div>
           <div class="doc-card">
             <span class="badge badge-green">DDF • rév. 2</span>
             <h4>Dossier de Fabrication</h4>
-            <p>Schéma électrique, nomenclature, typons à l'échelle 1, plan de perçage, schéma d'implantation et processus de fabrication.</p>
-            <p>Relecteur de l'ensemble du dossier.</p>
+            <p>Schéma électrique structurel, nomenclature complète (BOM), typons à l'échelle 1, plan de perçage, schéma d'implantation et gamme de fabrication.</p>
+            <p>Relecteur de l'ensemble du dossier avant tirage.</p>
           </div>
         </div>
 
         <figure class="pcb-figure">
           <img src="pcb-ares.png" alt="Placement des composants sur le PCB sous ARES">
-          <figcaption>Placement des composants sur la carte de 100 × 60 mm sous ARES : entrées d'énergie à gauche, LED sur le bord droit pour une visibilité maximale.</figcaption>
+          <figcaption>Placement des composants sur la carte de 100 × 60 mm sous ARES : entrées d'énergie à gauche, LEDs sur le bord droit pour une visibilité optimale.</figcaption>
         </figure>
 
         <div class="chips">
           <span class="chip">DDC rév. 3</span>
           <span class="chip">DDF rév. 2</span>
-          <span class="chip">Codes C1c-34, C1c-35, C1c-36</span>
+          <span class="chip">Routage PCB ARES (100 × 60 mm)</span>
           <span class="chip">Coût estimé : 7,01 € TTC</span>
         </div>
         <div class="actions">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projets & SAÉ — SOUAN Victor</title>
+  <title>Projets &amp; SAÉ — SOUAN Victor</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -12,36 +12,11 @@
       padding: 70px 20px !important;
     }
 
-    .filter-bar {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 38px;
-    }
-
-    .filter-btn {
-      padding: 9px 18px;
-      border-radius: 99px;
-      border: 1.5px solid #cbd5e1;
-      background: #ffffff;
-      color: var(--navy);
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--navy);
-      color: #ffffff;
-      border-color: var(--navy);
-    }
-
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 28px;
+      margin-bottom: 36px;
     }
 
     .project-card {
@@ -53,7 +28,8 @@
     }
 
     .project-banner {
-      height: 185px;
+      height: 200px;
+      background-color: #0f172a;
       background-size: cover;
       background-position: center;
       position: relative;
@@ -105,6 +81,17 @@
       font-weight: 600;
     }
 
+    .next-sae-banner {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid #94a3b8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
     @media (max-width: 820px) {
       .projects-grid { grid-template-columns: 1fr; }
     }
@@ -134,8 +121,6 @@
             <li><a href="competences.html">Vue d'ensemble</a></li>
             <li><a href="comp-concevoir.html">Concevoir (C.1 à C.4)</a></li>
             <li><a href="comp-verifier.html">Vérifier (V.1 à V.2)</a></li>
-            <li><a href="comp-maintenir.html">Maintenir (M.1 à M.2)</a></li>
-            <li><a href="comp-installer.html">Installer — EME (I.2)</a></li>
             <li><a href="comp-manager.html">Manager (G.1 à G.3)</a></li>
           </ul>
         </li>
@@ -153,36 +138,31 @@
   <section class="hero hero-sub">
     <div class="hero-bar"></div>
     <h1>Mes Projets &amp; SAÉ</h1>
-    <p>Découvrez l'ensemble de mes Situations d'Apprentissage et d'Évaluation en BUT GEII</p>
+    <p>Situations d'Apprentissage et d'Évaluation et réalisations techniques de 1ère année</p>
   </section>
 
   <div class="container">
-    <div class="filter-bar reveal">
-      <button class="filter-btn active" data-filter="all">Tous les projets (2)</button>
-      <button class="filter-btn" data-filter="electronique">Électronique &amp; PCB</button>
-      <button class="filter-btn" data-filter="energie">Énergie &amp; Puissance</button>
-    </div>
-
     <div class="projects-grid">
-      <article class="card project-card project-item reveal" data-category="electronique">
+      <article class="card project-card reveal">
         <div>
-          <div class="project-banner" style="background-image: linear-gradient(rgba(15,23,42,0.2), rgba(15,23,42,0.4)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80');">
-            <span class="badge badge-amber project-banner-badge">Semestre 1 • En cours</span>
+          <div class="project-banner" style="background-image: linear-gradient(rgba(15,23,42,0.15), rgba(15,23,42,0.35)), url('pcb-ares.png');">
+            <span class="badge badge-amber project-banner-badge">SAÉ Semestre 1 • Projet principal</span>
           </div>
           <div class="project-content">
             <div>
               <div class="project-tags">
                 <span class="badge badge-blue">Concevoir</span>
                 <span class="badge badge-blue">Vérifier</span>
-                <span class="badge badge-gray">Équipe 43 (4 étudiants)</span>
+                <span class="badge badge-navy">Manager</span>
+                <span class="badge badge-gray">Équipe 43</span>
               </div>
-              <h2>SAÉ S1 — Thermomètre de bain électronique</h2>
-              <p>Conception complète d'un thermomètre autonome sur batterie LiPo 2S avec capteur LM35, comparateurs MCP6002, logique 74HC02, seuils d'alerte (36,0 °C et 39,0 °C) et routage PCB sous ARES.</p>
+              <h2>SAÉ S1 — Thermomètre de bain (TDB-EQ43)</h2>
+              <p>Conception complète d'un thermomètre autonome sur batterie LiPo 2S avec capteur LM35, comparateurs MCP6002, porte NOR 74HC02, seuils d'alerte (36,0 °C et 39,0 °C), simulation sous ISIS et routage PCB sous ARES.</p>
             </div>
             <div>
               <div class="project-specs" style="margin-bottom: 16px;">
                 <span>📐 PCB 100 × 60 mm</span>
-                <span>🔋 Autonomie 24 h</span>
+                <span>💶 7,01 € TTC</span>
                 <span>⏱️ 40 h projet</span>
               </div>
               <a href="sae-s1.html" class="btn-navy" style="width: 100%;">Ouvrir la page dédiée du projet →</a>
@@ -191,30 +171,42 @@
         </div>
       </article>
 
-      <article class="card project-card project-item reveal" data-category="energie electronique">
+      <article class="card project-card reveal">
         <div>
-          <div class="project-banner" style="background-image: linear-gradient(rgba(15,23,42,0.2), rgba(15,23,42,0.4)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80');">
-            <span class="badge badge-gray project-banner-badge">Semestre 2 • À venir</span>
+          <div class="project-banner" style="background-image: linear-gradient(rgba(15,23,42,0.15), rgba(15,23,42,0.35)), url('portfolio-code.jpg');">
+            <span class="badge badge-green project-banner-badge">Développement Web • Autonomie</span>
           </div>
           <div class="project-content">
             <div>
               <div class="project-tags">
-                <span class="badge badge-navy">Énergie &amp; Puissance</span>
-                <span class="badge badge-gray">Asservissement</span>
+                <span class="badge badge-navy">HTML5 / CSS3 / JS</span>
+                <span class="badge badge-blue">GitHub Pages</span>
+                <span class="badge badge-gray">Multilingue</span>
               </div>
-              <h2>SAÉ S2 — Kart à hélice propulsé</h2>
-              <p>Étude et réalisation de la chaîne d'énergie et de commande d'un véhicule mobile propulsé par hélice : variation de vitesse moteur, gestion de batterie et pilotage embarqué.</p>
+              <h2>Conception sur-mesure de ce Portfolio</h2>
+              <p>Développement intégral de ce site web sous Visual Studio Code et déploiement via GitHub Pages (plutôt qu'un éditeur visuel classique) pour structurer mes preuves de compétences de manière claire, rapide et responsive.</p>
             </div>
             <div>
               <div class="project-specs" style="margin-bottom: 16px;">
-                <span>⚡ Électronique de puissance</span>
-                <span>🎛️ Commande moteur</span>
+                <span>💻 Code sur-mesure</span>
+                <span>📱 100 % Responsive</span>
+                <span>🌐 FR / EN / ES</span>
               </div>
-              <span class="btn-outline" style="width: 100%; opacity: 0.7; cursor: default;">Page disponible au Semestre 2</span>
+              <a href="parcours.html#plateforme" class="btn-outline" style="width: 100%;">Voir les choix techniques →</a>
             </div>
           </div>
         </div>
       </article>
+    </div>
+
+    <div class="card next-sae-banner reveal">
+      <div>
+        <span class="badge badge-gray">À venir • Semestre 2</span>
+        <h3 style="color: var(--navy); font-size: 18px; margin-top: 6px;">SAÉ S2 — Kart à hélice propulsé</h3>
+        <p style="font-size: 14px; color: var(--text-muted); margin-top: 4px;">
+          Cette rubrique accueillera au second semestre l'étude de la chaîne d'énergie, la variation de vitesse moteur et le pilotage embarqué du kart à hélice.
+        </p>
+      </div>
     </div>
   </div>
 
