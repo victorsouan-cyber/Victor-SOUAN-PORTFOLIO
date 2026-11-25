@@ -110,3 +110,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// === ZOOM PLEIN ÉCRAN (LIGHTBOX) SUR LES IMAGES TECHNIQUES ===
+document.addEventListener("DOMContentLoaded", () => {
+  const zoomableImages = document.querySelectorAll(".proof-img, .sim-card img, .pcb-figure img");
+  if (!zoomableImages.length) return;
+
+  const overlay = document.createElement("div");
+  overlay.className = "lightbox-overlay";
+  overlay.innerHTML = `
+    <button class="lightbox-close" aria-label="Fermer">&times;</button>
+    <img src="" alt="">
+    <p class="lightbox-caption"></p>
+  `;
+  document.body.appendChild(overlay);
+
+  const overlayImg = overlay.querySelector("img");
+  const overlayCaption = overlay.querySelector(".lightbox-caption");
+  const closeBtn = overlay.querySelector(".lightbox-close");
+
+  zoomableImages.forEach((img) => {
+    img.addEventListener("click", () => {
+      overlayImg.src = img.src;
+      overlayImg.alt = img.alt;
+      overlayCaption.textContent = img.alt || "";
+      overlay.classList.add("open");
+    });
+  });
+
+  const closeLightbox = () => overlay.classList.remove("open");
+
+  closeBtn.addEventListener("click", closeLightbox);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+});
+// === ACTIVATION DU MODE TRANSLUCIDE AU DÉFILEMENT ===
+window.addEventListener("scroll", () => {
+  const header = document.querySelector("header");
+  if (!header) return;
+  if (window.scrollY > 30) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
